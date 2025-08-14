@@ -1,3 +1,4 @@
+// connected to Albert25g
 import Image from "next/image";
 
 export default function Home() {
