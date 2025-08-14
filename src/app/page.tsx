@@ -1,3 +1,4 @@
+// verify GitHub→Vercel auto-deploy
 // connected to Albert25g
 import Image from "next/image";
 
