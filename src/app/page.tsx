@@ -1,105 +1,75 @@
-// verify GitHub→Vercel auto-deploy
-// connected to Albert25g
-import Image from "next/image";
+// File: src/app/page.tsx
+// Purpose: visibly change homepage copy to confirm auto-deploys on push
+// Notes: Tailwind classes assume you've already set up Tailwind. Safe to replace existing content.
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="min-h-screen bg-white text-gray-900">
+      <section className="mx-auto max-w-3xl px-6 py-20">
+        <h1 className="text-4xl font-bold tracking-tight">
+          WebistryDesk — Live Update Test ✅
+        </h1>
+        <p className="mt-4 text-lg leading-relaxed">
+          If you can see this message in production, your Vercel pipeline is working.
+        </p>
+        <div className="mt-6 rounded-2xl border p-4 text-sm">
+          <p>
+            Build Label: <span className="font-mono">v-2025-08-15-1</span>
+          </p>
+          <p className="mt-2">
+            Tip: After pushing to <span className="font-mono">main</span>, Vercel should build & deploy automatically.
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+    </main>
   );
 }
+
+// ------------------------------------------------------------
+// OPTIONAL: simple health endpoint you can hit to verify the app is live
+// File: src/app/api/health/route.ts (Next.js App Router)
+// Usage: GET https://webistrydesk.com/api/health
+
+import { NextResponse } from "next/server";
+
+export async function GET() {
+  return NextResponse.json({ status: "ok", service: "webistrydesk", version: "v-2025-08-15-1" });
+}
+
+// ------------------------------------------------------------
+// OPTIONAL: Small debug footer for quick env + commit checks
+// Add this inside the HomePage component, at the bottom of <main>:
+// <footer className="mt-14 text-xs text-gray-500">
+//   <div>env: {process.env.NODE_ENV}</div>
+//   <div>commit: {process.env.NEXT_PUBLIC_GIT_SHA ?? "dev"}</div>
+//   <div>host: {typeof window !== 'undefined' ? window.location.host : 'server'}</div>
+// </footer>
+
+// ------------------------------------------------------------
+// OPTIONAL: Safer middleware that only protects /admin — not the entire site
+// File: src/middleware.ts
+// If you had Firebase/SSO gating everything, replace it with this targeted guard.
+// This prevents 401s on the homepage and public routes.
+
+// import { NextResponse } from 'next/server'
+// import type { NextRequest } from 'next/server'
+//
+// export function middleware(req: NextRequest) {
+//   // Only guard /admin and /dashboard — everything else stays public
+//   const url = req.nextUrl
+//   const pathname = url.pathname
+//   const guarded = pathname.startsWith('/admin') || pathname.startsWith('/dashboard')
+//   if (!guarded) return NextResponse.next()
+//
+//   // Example: require a cookie/token; replace with your Firebase session check
+//   const hasSession = req.cookies.get('session')?.value
+//   if (!hasSession) {
+//     url.pathname = '/login'
+//     return NextResponse.redirect(url)
+//   }
+//   return NextResponse.next()
+// }
+//
+// export const config = {
+//   matcher: ['/admin/:path*', '/dashboard/:path*'],
+// }
