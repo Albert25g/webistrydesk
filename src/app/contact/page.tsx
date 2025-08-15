@@ -29,7 +29,9 @@ export default function ContactUs() {
       await navigator.clipboard.writeText(addr);
       setCopied(addr);
       setTimeout(() => setCopied(null), 1500);
-    } catch {}
+    } catch {
+      // ignore clipboard errors
+    }
   }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -57,8 +59,9 @@ export default function ContactUs() {
       if (!res.ok) throw new Error(json?.error || "Failed to send message.");
       setStatus({ type: "success", message: "Thanks! We’ll get back to you shortly." });
       form.reset();
-    } catch (err: any) {
-      setStatus({ type: "error", message: err?.message || "Something went wrong." });
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Something went wrong.";
+      setStatus({ type: "error", message });
     }
   }
 
