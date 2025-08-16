@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { onAuthStateChanged, signOut, type User } from "firebase/auth";
-import { getAuthClient, isFirebaseConfigured } from "../../lib/firebase";
-import Link from "next/link";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { onAuthStateChanged, signOut, type User } from 'firebase/auth';
+import { getAuthClient, isFirebaseConfigured } from '../../lib/firebase';
+import Link from 'next/link';
 
 export default function Dashboard() {
   const router = useRouter();
@@ -23,7 +23,7 @@ export default function Dashboard() {
     const unsub = onAuthStateChanged(auth, (u) => {
       setUser(u);
       setReady(true);
-      if (!u) router.replace("/login");
+      if (!u) router.replace('/login');
     });
     return () => unsub();
   }, [router]);
@@ -40,11 +40,18 @@ export default function Dashboard() {
     return (
       <main className="min-h-screen bg-gray-950 text-white flex items-center justify-center px-6">
         <div className="max-w-xl rounded-2xl bg-gray-900/50 border border-white/5 p-6 text-center">
-          <h1 className="text-2xl font-bold mb-2">Authentication not configured</h1>
+          <h1 className="text-2xl font-bold mb-2">
+            Authentication not configured
+          </h1>
           <p className="text-gray-400">
-            Add your Firebase public web keys to <code className="text-gray-300">.env.local</code> (NEXT_PUBLIC_*), then restart the dev server.
+            Add your Firebase public web keys to{' '}
+            <code className="text-gray-300">.env.local</code> (NEXT_PUBLIC_*),
+            then restart the dev server.
           </p>
-          <Link href="/login" className="inline-block mt-4 px-4 py-2 rounded-lg border border-white/10 hover:bg-gray-900 transition">
+          <Link
+            href="/login"
+            className="inline-block mt-4 px-4 py-2 rounded-lg border border-white/10 hover:bg-gray-900 transition"
+          >
             Back to Login
           </Link>
         </div>
@@ -56,28 +63,31 @@ export default function Dashboard() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-gray-950 text-white">
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-grid animate-grid" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 bg-grid animate-grid"
+      />
 
       <section className="px-6 py-16 max-w-6xl mx-auto">
         {/* Welcome */}
         <div className="rounded-2xl bg-gray-900/50 border border-white/5 p-6 md:p-8">
           <h1 className="text-3xl font-bold">
-            Welcome{user.displayName ? `, ${user.displayName}` : ""}!
+            Welcome{user.displayName ? `, ${user.displayName}` : ''}!
           </h1>
           <p className="text-gray-400 mt-2">
             Signed in as <span className="text-gray-200">{user.email}</span>
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/services/web-design" className="px-4 py-2 rounded-lg border border-white/10 hover:bg-gray-900 transition">
+            <Link href="/services/web-design" className="btn btn-ghost">
               Start a Design Brief
             </Link>
-            <Link href="/services/development" className="px-4 py-2 rounded-lg border border-white/10 hover:bg-gray-900 transition">
+            <Link href="/services/development" className="btn btn-ghost">
               Kick off Development
             </Link>
-            <Link href="/services/ai-tools" className="px-4 py-2 rounded-lg border border-white/10 hover:bg-gray-900 transition">
+            <Link href="/services/ai-tools" className="btn btn-ghost">
               Explore AI Capabilities
             </Link>
-            <Link href="/contact" className="px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 font-medium hover:opacity-90 transition">
+            <Link href="/contact" className="btn btn-primary">
               Contact Support
             </Link>
           </div>
@@ -95,13 +105,29 @@ export default function Dashboard() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1">⬜</span>
-                <span>Tell us about your project — <Link href="/contact" className="underline">send a brief</Link></span>
+                <span>
+                  Tell us about your project —{' '}
+                  <Link href="/contact" className="underline">
+                    send a brief
+                  </Link>
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1">⬜</span>
-                <span>Pick a service: <Link className="underline" href="/services/web-design">Design</Link>,{" "}
-                  <Link className="underline" href="/services/development">Dev</Link>,{" "}
-                  <Link className="underline" href="/services/ai-tools">AI</Link></span>
+                <span>
+                  Pick a service:{' '}
+                  <Link className="underline" href="/services/web-design">
+                    Design
+                  </Link>
+                  ,{' '}
+                  <Link className="underline" href="/services/development">
+                    Dev
+                  </Link>
+                  ,{' '}
+                  <Link className="underline" href="/services/ai-tools">
+                    AI
+                  </Link>
+                </span>
               </li>
             </ul>
           </div>
@@ -110,13 +136,18 @@ export default function Dashboard() {
           <div className="rounded-2xl bg-gray-900/50 border border-white/5 p-6">
             <div className="font-semibold mb-2">Your Account</div>
             <div className="text-sm text-gray-300">
-              <div><span className="text-gray-400">Name:</span> {user.displayName || "—"}</div>
-              <div><span className="text-gray-400">Email:</span> {user.email}</div>
+              <div>
+                <span className="text-gray-400">Name:</span>{' '}
+                {user.displayName || '—'}
+              </div>
+              <div>
+                <span className="text-gray-400">Email:</span> {user.email}
+              </div>
             </div>
             <button
               onClick={() => {
                 const auth = getAuthClient();
-                if (auth) signOut(auth).then(() => router.push("/"));
+                if (auth) signOut(auth).then(() => router.push('/'));
               }}
               className="mt-4 px-4 py-2 rounded-lg border border-white/10 hover:bg-gray-900 transition"
             >
@@ -128,9 +159,26 @@ export default function Dashboard() {
           <div className="rounded-2xl bg-gray-900/50 border border-white/5 p-6">
             <div className="font-semibold mb-2">Resources</div>
             <ul className="text-sm text-gray-300 space-y-2">
-              <li><Link href="/#services" className="underline">What we offer</Link></li>
-              <li><Link href="/contact" className="underline">Email our team</Link></li>
-              <li><a href="https://github.com/Albert25g/webistrydesk" target="_blank" rel="noopener noreferrer" className="underline">GitHub repo</a></li>
+              <li>
+                <Link href="/#services" className="underline">
+                  What we offer
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="underline">
+                  Email our team
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/Albert25g/webistrydesk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline"
+                >
+                  GitHub repo
+                </a>
+              </li>
             </ul>
           </div>
         </div>

@@ -1,46 +1,262 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-/* Root theme variables */
+/*
+  Design system: refined neutral/dusky palette, clear typography,
+  accessible focus states, and reusable utility classes for buttons,
+  cards and forms. This keeps visual weight professional and trusted.
+*/
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core colors (dark-first) */
+  --bg: #0b1220; /* deep navy charcoal */
+  --surface: #0f1724; /* slightly lighter for cards */
+  --muted: #111827; /* general muted surfaces */
+  --text: #e6eef8; /* primary text */
+  --muted-text: #9aa7b8; /* secondary text */
+
+  /* Accents */
+  --primary-600: #06b6d4; /* cyan-500-ish - trusted, modern */
+  --primary-700: #0ea5b7;
+  --accent: #7c3aed; /* subtle purple for highlights */
+
+  /* Elevation / borders */
+  --border: rgba(255, 255, 255, 0.04);
+  --glass: rgba(255, 255, 255, 0.03);
+
+  --radius-lg: 14px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg: #f7fafc;
+    --surface: #ffffff;
+    --muted: #f3f4f6;
+    --text: #0f1724;
+    --muted-text: #525f71;
+    --border: rgba(15, 23, 36, 0.06);
+    --glass: rgba(15, 23, 36, 0.02);
   }
 }
 
+/* Base typography + smoothing */
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
 }
 
-/* --- Animated grid background --- */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+/* Headings: confident, compact */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+
+h1 {
+  font-size: clamp(1.75rem, 2.6vw, 3rem);
+  font-weight: 800;
+}
+h2 {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 700;
+}
+h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+/* Links */
+a {
+  color: var(--primary-600);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: var(--primary-700);
+  text-decoration: underline;
+}
+
+/* Buttons (reusable helper classes) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary-600), var(--primary-700));
+  color: white;
+  box-shadow: 0 6px 18px rgba(6, 182, 212, 0.08);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Card / surface */
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.01),
+    rgba(255, 255, 255, 0)
+  );
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+}
+
+/* Forms */
+input,
+textarea,
+select {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.01),
+    rgba(255, 255, 255, 0)
+  );
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  outline: none;
+  transition: box-shadow 140ms ease, border-color 140ms ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted-text);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: 0 6px 20px rgba(14, 165, 183, 0.08);
+  border-color: var(--primary-600);
+}
+
+/* Accessible focus ring for keyboard users */
+:focus {
+  outline: 3px solid transparent;
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.12);
+}
+
+/* Small utility */
+.muted {
+  color: var(--muted-text);
+}
+
+/* Subtle, modern animated grid kept but softened */
 .bg-grid {
-  background-image:
-    linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
-  background-size: 40px 40px;
-  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, transparent 60%);
-  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, transparent 60%);
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.6) 0%,
+    transparent 65%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.6) 0%,
+    transparent 65%
+  );
 }
 
 @keyframes grid-pan {
-  from { background-position: 0px 0px, 0px 0px; }
-  to   { background-position: 40px 40px, 40px 40px; }
+  from {
+    background-position: 0px 0px, 0px 0px;
+  }
+  to {
+    background-position: 48px 48px, 48px 48px;
+  }
 }
 
 .animate-grid {
-  animation: grid-pan 22s linear infinite;
+  animation: grid-pan 28s linear infinite;
+}
+
+/* Small helpers used in layout */
+.glass {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+/* Soft glow background used behind hero/sections. It respects color tokens -
+   modify the rgba stops to tune intensity. */
+:root {
+  --soft-glow-1: radial-gradient(
+    800px 400px at 20% 10%,
+    rgba(6, 182, 212, 0.14),
+    transparent 60%
+  );
+  --soft-glow-2: radial-gradient(
+    700px 350px at 80% 20%,
+    rgba(14, 165, 183, 0.1),
+    transparent 60%
+  );
+  --soft-glow-3: radial-gradient(
+    900px 450px at 50% 90%,
+    rgba(124, 58, 237, 0.08),
+    transparent 60%
+  );
+}
+
+.soft-glow {
+  background: var(--soft-glow-1), var(--soft-glow-2), var(--soft-glow-3);
+}
+
+/* Make code tags slightly distinctive */
+code {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.15rem 0.35rem;
+  border-radius: 6px;
+  color: var(--text);
+}
+
+/* Heading gradient helper (use on large headings for subtle brand accent) */
+.heading-gradient {
+  background: linear-gradient(
+    90deg,
+    var(--primary-600),
+    var(--primary-700),
+    var(--accent)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
