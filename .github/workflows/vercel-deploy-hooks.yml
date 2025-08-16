@@ -1,0 +1,19 @@
+name: Trigger Vercel Deploy Hooks
+on: [push, workflow_dispatch]
+
+jobs:
+  prod:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -s -X POST "$VERCEL_PROD_HOOK_URL"
+        env:
+          VERCEL_PROD_HOOK_URL: ${{ secrets.VERCEL_PROD_HOOK_URL }}
+
+  dev:
+    if: github.ref == 'refs/heads/dev'
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -s -X POST "$VERCEL_DEV_HOOK_URL"
+        env:
+          VERCEL_DEV_HOOK_URL: ${{ secrets.VERCEL_DEV_HOOK_URL }}
