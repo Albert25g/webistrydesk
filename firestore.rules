@@ -1,0 +1,22 @@
+// Firestore Security Rules
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Public read-only docs (optional): /public/*
+    match /public/{doc} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Per-user private subcollections: /users/{uid}/...
+    match /users/{uid}/{collection=**}/{doc} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // Admin area (requires custom claim `admin: true`)
+    match /admin/{doc=**} {
+      allow read, write: if request.auth != null && request.auth.token.admin == true;
+    }
+  }
+}

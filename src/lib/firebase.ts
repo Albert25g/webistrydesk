@@ -1,33 +1,21 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getAuth, type Auth } from "firebase/auth";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+// If/when you enable Firebase Storage, uncomment the next two lines:
+// import { getStorage } from "firebase/storage";
 
-/** Read once; safe for client bundle */
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "",
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "",
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "",
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "",
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "",
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "",
+  apiKey: "AIzaSyCzxTv_qssucMBWwYbCWw7Xgm9K4gOHLMs",
+  authDomain: "webistrydesk-9c237.firebaseapp.com",
+  projectId: "webistrydesk-9c237",
+  storageBucket: "webistrydesk-9c237.appspot.com",
+  messagingSenderId: "260507943525",
+  appId: "1:260507943525:web:fe0b44148eee778fccbc8c",
+  measurementId: "G-T09ZXSVKF4",
 };
 
-/** Check if public web config is present */
-export function isFirebaseConfigured() {
-  return Boolean(
-    firebaseConfig.apiKey &&
-    firebaseConfig.authDomain &&
-    firebaseConfig.projectId &&
-    firebaseConfig.appId
-  );
-}
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 
-/** Get Auth only on the client and only if configured; otherwise return null. */
-export function getAuthClient(): Auth | null {
-  if (typeof window === "undefined") return null; // SSR/prerender: do nothing
-  if (!isFirebaseConfigured()) {
-    console.warn("Firebase Auth disabled: missing NEXT_PUBLIC_* env vars.");
-    return null;
-  }
-  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-  return getAuth(app);
-}
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+// export const storage = getStorage(app);
