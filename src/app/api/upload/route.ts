@@ -3,7 +3,13 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   const { searchParams } = new URL(req.url);
-  const filename = searchParams.get('filename') || 'file';
-  const blob = await put(filename, req.body!, { access: 'public', addRandomSuffix: true });
+  const filename = searchParams.get('filename') || 'file.txt';
+
+  // Body is the file bytes
+  const blob = await put(filename, req.body!, {
+    access: 'public',
+    addRandomSuffix: true,
+  });
+
   return NextResponse.json(blob);
 }

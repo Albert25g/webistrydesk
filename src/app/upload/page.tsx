@@ -22,7 +22,7 @@ export default function Page() {
         <input ref={inputRef} type="file" required />
         <button className="ml-2 px-3 py-1 rounded bg-black text-white">Upload</button>
       </form>
-      {blob && (<p className="break-all">URL: <a className="underline" href={blob.url}>{blob.url}</a></p>)}
+      {blob && <p className="break-all">URL: <a className="underline" href={blob.url}>{blob.url}</a></p>}
     </main>
   );
 }
