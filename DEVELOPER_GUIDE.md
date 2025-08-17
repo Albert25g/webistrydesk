@@ -38,6 +38,7 @@ npm run dev
 - Add authorized domains (e.g., `localhost`) in Firebase Console.
 
 Runtime helpers:
+
 - `src/lib/firebase.ts` exports `getAuthClient()`, `getFirestoreClient()`, `isFirebaseConfigured()`, and `getFirebasePublicConfig()`.
 
 ## Husky & pre-push
@@ -53,9 +54,9 @@ Install hooks locally once with `npm run prepare`.
 - Example:
 
 ```tsx
-import Image from 'next/image'
-export default function Hero(){
-  return <Image src="/images/hero.png" alt="Hero" width={1200} height={600} />
+import Image from 'next/image';
+export default function Hero() {
+  return <Image src="/images/hero.png" alt="Hero" width={1200} height={600} />;
 }
 ```
 
@@ -63,6 +64,14 @@ export default function Hero(){
 
 - Feature branches from `dev` or `main` (project uses `main` as primary branch).
 - Open a PR for merges; CI will run build & lint.
+
+## Continuous Integration (CI)
+
+- This repository includes a GitHub Actions workflow that runs on pull requests targeting `main`.
+- The CI job runs build, lint, and a small check that `.env.example` contains the required public keys.
+- Pull requests must pass CI before merging to `main` (configure branch protection in GitHub settings to require CI checks).
+
+Why: CI is the authoritative gate that prevents broken or misconfigured code from reaching `main`.
 
 ## Troubleshooting
 
@@ -75,4 +84,5 @@ export default function Hero(){
 - Primary maintainer: info@webistrydesk.com
 
 ---
+
 Small, useful bits should go in README; longer onboarding belongs here.

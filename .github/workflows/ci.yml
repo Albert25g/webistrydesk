@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build --if-present
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Check .env.example required keys
+        run: |
+          required=(NEXT_PUBLIC_FIREBASE_API_KEY NEXT_PUBLIC_FIREBASE_PROJECT_ID)
+          missing=0
+          for k in "${required[@]}"; do
+            if ! grep -q "^${k}=" .env.example; then
+              echo "Missing $k in .env.example"
+              missing=1
+            fi
+          done
+          if [ $missing -ne 0 ]; then
+            echo "Please populate .env.example with required keys."
+            exit 1
+          fi
