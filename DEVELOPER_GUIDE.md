@@ -60,6 +60,25 @@ export default function Hero() {
 }
 ```
 
+### Image optimization (recommended)
+
+We include a small optimizer script that generates `.webp` and `.avif` variants for raster images.
+
+To optimize existing images:
+
+```bash
+# Install dependencies (if not already installed)
+npm ci
+
+# Run optimizer (creates .webp and .avif alongside original files)
+npm run images:optimize
+```
+
+Notes:
+- The optimizer scans `public/images/**` for `.jpg`, `.jpeg`, and `.png` files and writes `.webp` and `.avif` variants. It uses `sharp` and is intended for CI or local use before deployments.
+- After optimizing, reference the original path in `next/image` and configure `picture` or content negotiation if you want to prefer modern formats. Alternatively, serve the modern variants directly where supported.
+
+
 ## Git workflow
 
 - Feature branches from `dev` or `main` (project uses `main` as primary branch).
