@@ -1,0 +1,91 @@
+#!/usr/bin/env bash
+# One-shot BFG scrub template.
+# WARNING: This is a template. Fill placeholders locally (do NOT commit) and review before running.
+# After running: rotate keys, notify collaborators, and have them re-clone.
+
+set -euo pipefail
+
+# --- CONFIGURE THESE LOCALLY (replace placeholders) ---
+REPO_SSH="git@github.com:OWNER/REPO.git"   # e.g. git@github.com:your-org/webistrydesk.git
+MIRROR_DIR="repo-mirror.git"
+BFG_JAR="/path/to/bfg.jar"                 # path to your downloaded bfg jar
+REPLACEMENTS_TEMPLATE="../bfg-replacements.template.txt"
+REPLACEMENTS_FILE="bfg-replacements.txt"   # will be created from template (fill values)
+# Optional: files to delete by name
+DELETE_FILES=( ".env.local" ".env.local.bak*" )
+
+# --- SAFETY CHECKS ---
+if [ ! -f "$BFG_JAR" ]; then
+  echo "ERROR: BFG JAR not found at $BFG_JAR"
+  echo "Download from: https://rtyley.github.io/bfg-repo-cleaner/"
+  exit 1
+fi
+
+if [ ! -f "$REPLACEMENTS_TEMPLATE" ]; then
+  echo "ERROR: Replacements template not found at $REPLACEMENTS_TEMPLATE"
+  exit 1
+fi
+
+echo "This script will:"
+echo "  1) create a mirror clone of $REPO_SSH -> $MIRROR_DIR"
+echo "  2) copy $REPLACEMENTS_TEMPLATE -> $REPLACEMENTS_FILE (you must EDIT it to contain exact secrets)"
+echo "  3) run BFG --replace-text (and optional --delete-files)"
+echo "  4) run git reflog expire + git gc"
+echo "  5) force-push cleaned history to origin"
+echo
+read -p "Have you rotated exposed keys already? (type YES to continue) " CONFIRM
+if [ "$CONFIRM" != "YES" ]; then
+  echo "Aborting. Rotate keys first, then run again."
+  exit 1
+fi
+
+# --- MIRROR CLONE ---
+rm -rf "$MIRROR_DIR"
+git clone --mirror "$REPO_SSH" "$MIRROR_DIR"
+cd "$MIRROR_DIR"
+
+# --- PREPARE REPLACEMENTS FILE ---
+cp "$REPLACEMENTS_TEMPLATE" "$REPLACEMENTS_FILE"
+echo
+echo "Now edit $MIRROR_DIR/$REPLACEMENTS_FILE and replace placeholders with the EXACT secret strings."
+echo "Example entry (replace TOKEN_VALUE with the real value):"
+echo "  old-secret-token==>REPLACED_SECRET_TOKEN"
+echo
+read -p "Edit the file now? Press ENTER when done (or ctrl-c to abort) " _
+
+# Safety: ensure the replacements file does not contain placeholder tokens
+if grep -q "PLACEHOLDER" "$REPLACEMENTS_FILE"; then
+  echo "ERROR: Replacements file still contains PLACEHOLDER tokens. Edit it to include exact strings."
+  exit 1
+fi
+
+# --- RUN BFG (replace-text) ---
+echo "Running BFG replace-text..."
+java -jar "$BFG_JAR" --replace-text "$REPLACEMENTS_FILE" .
+
+# Optional: delete known filenames (uncomment if desired)
+for f in "${DELETE_FILES[@]}"; do
+  echo "Removing files by name: $f"
+  java -jar "$BFG_JAR" --delete-files "$f" .
+done
+
+# --- CLEANUP AND GC ---
+git for-each-ref --format="%(refname)" refs/original/ | xargs -r -n1 git update-ref -d
+git reflog expire --expire=now --all
+git gc --prune=now --aggressive
+
+# --- FORCE PUSH ---
+echo "Ready to force-push cleaned refs to origin."
+read -p "Type PUSH to proceed with git push --force: " PUSH_CONFIRM
+if [ "$PUSH_CONFIRM" = "PUSH" ]; then
+  git push --force
+  echo "Force-push complete."
+else
+  echo "Skipped push. Inspect the mirror at $MIRROR_DIR before pushing."
+fi
+
+# --- POST ACTIONS ---
+echo "Remove the local replacements file now:"
+echo "  rm -f \"$MIRROR_DIR/$REPLACEMENTS_FILE\""
+echo "Rotate the replaced keys with the provider immediately (if not done)."
+echo "Notify collaborators to re-clone the repository."
