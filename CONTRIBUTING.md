@@ -16,4 +16,4 @@ npm run build && npm run start
 - Create a branch: `feat/...`, `fix/...`, or `chore/...`
 - Commit small and often, push, open a PR to `main`
 - Keep branch fresh: `git fetch origin && git rebase origin/main`
-- No direct pushes to `main` (branch protection is on)
+- **Important**: While direct pushes to `main` are currently possible, they should be avoided. See `BRANCH_PROTECTION_SETUP.md` for enabling branch protection.
