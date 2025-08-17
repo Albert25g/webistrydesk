@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 
 type Status = {
   type: 'idle' | 'loading' | 'success' | 'error';
@@ -45,7 +45,7 @@ export default function ContactUs() {
     }
   }
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries()) as Record<
@@ -94,7 +94,7 @@ export default function ContactUs() {
         className="pointer-events-none absolute inset-0 -z-10 bg-grid animate-grid"
       />
       <div
-        aria-hidden
+        aria-hidden="true"
         className="pointer-events-none absolute -z-10 inset-0 opacity-40 soft-glow"
       />
 
