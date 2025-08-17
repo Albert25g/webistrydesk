@@ -7,9 +7,9 @@
     "build": "next build",
     "prepare": "husky install",
     "start": "next start",
-  "lint": "next lint",
-  "images:optimize": "node ./scripts/optimize-images.mjs",
-  "smoke": "node ./scripts/smoke.mjs",
+    "lint": "next lint",
+    "images:optimize": "node ./scripts/optimize-images.mjs",
+    "smoke": "node ./scripts/smoke.mjs",
     "test": "npm run smoke"
   },
   "dependencies": {
@@ -29,8 +29,8 @@
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
     "tailwindcss": "^4",
-  "typescript": "^5",
-  "sharp": "^0.32.0"
+    "typescript": "^5",
+    "sharp": "^0.34.3"
   },
   "engines": {
     "node": ">=18.17 <23"
