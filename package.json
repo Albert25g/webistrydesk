@@ -7,9 +7,9 @@
     "build": "next build",
     "prepare": "husky install",
     "start": "next start",
-  "lint": "next lint",
-  "smoke": "node ./scripts/smoke.js",
-  "test": "npm run smoke"
+    "lint": "next lint",
+  "smoke": "node ./scripts/smoke.mjs",
+    "test": "npm run smoke"
   },
   "dependencies": {
     "@vercel/blob": "^1.1.1",

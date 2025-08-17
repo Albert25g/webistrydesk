@@ -1,12 +1,17 @@
 # Require review from the team for src changes
+
 @Albert25g @webistry
 
-docs/* @Albert25g
+docs/\* @Albert25g
+
 # Code owners rules
+
 # Note: last matching pattern wins; put more specific rules last.
 
 # Everything in the Next.js app
-/src/app/**                 @Albert25g
+
+/src/app/\*\* @Albert25g
 
 # API routes (more specific)
-/src/app/api/**             @Albert25g
+
+/src/app/api/\*\* @Albert25g

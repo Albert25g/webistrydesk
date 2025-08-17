@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState, FormEvent } from 'react';
 
@@ -114,7 +114,9 @@ export default function ContactUs() {
           <EmailButton addr="info@webistrydesk.com" onCopy={copy} />
           <EmailButton addr="support@webistrydesk.com" onCopy={copy} />
           {copied && (
-            <p className="text-center text-sm text-green-400">Copied {copied}</p>
+            <p className="text-center text-sm text-green-400">
+              Copied {copied}
+            </p>
           )}
         </div>
 
@@ -137,7 +139,10 @@ export default function ContactUs() {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-sm text-gray-300 mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm text-gray-300 mb-2"
+                >
                   Your Name *
                 </label>
                 <input
@@ -148,7 +153,10 @@ export default function ContactUs() {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm text-gray-300 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm text-gray-300 mb-2"
+                >
                   Email *
                 </label>
                 <input
@@ -162,7 +170,10 @@ export default function ContactUs() {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm text-gray-300 mb-2">
+              <label
+                htmlFor="message"
+                className="block text-sm text-gray-300 mb-2"
+              >
                 Message *
               </label>
               <textarea
@@ -179,11 +190,18 @@ export default function ContactUs() {
               <button
                 type="submit"
                 disabled={status.type === 'loading'}
-                className={`btn ${status.type === 'loading' ? 'opacity-50' : 'btn-primary'}`}>
+                className={`btn ${
+                  status.type === 'loading' ? 'opacity-50' : 'btn-primary'
+                }`}
+              >
                 {status.type === 'loading' ? 'Sending…' : 'Send Message'}
               </button>
-              {status.type === 'error' && <p className="text-red-400">{status.message}</p>}
-              {status.type === 'success' && <p className="text-green-400">{status.message}</p>}
+              {status.type === 'error' && (
+                <p className="text-red-400">{status.message}</p>
+              )}
+              {status.type === 'success' && (
+                <p className="text-green-400">{status.message}</p>
+              )}
             </div>
 
             <p className="text-xs text-gray-500 mt-2">
