@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-  import { useState, FormEvent } from 'react';
+import { useState, FormEvent } from 'react';
 
 type Status = {
   type: 'idle' | 'loading' | 'success' | 'error';
@@ -45,7 +45,7 @@ export default function ContactUs() {
     }
   }
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries()) as Record<
@@ -94,14 +94,9 @@ export default function ContactUs() {
         className="pointer-events-none absolute inset-0 -z-10 bg-grid animate-grid"
       />
       <div
-        aria-hidden
+        aria-hidden="true"
         className="pointer-events-none absolute -z-10 inset-0 opacity-40 soft-glow"
       />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -z-10 inset-0 opacity-40 soft-glow"
-        />
-  async function onSubmit(e: FormEvent<HTMLFormElement>) {
 
       <section className="px-6 py-16">
         <div className="mx-auto max-w-3xl text-center">
@@ -119,9 +114,7 @@ export default function ContactUs() {
           <EmailButton addr="info@webistrydesk.com" onCopy={copy} />
           <EmailButton addr="support@webistrydesk.com" onCopy={copy} />
           {copied && (
-            <p className="text-center text-sm text-green-400">
-              Copied {copied}
-            </p>
+            <p className="text-center text-sm text-green-400">Copied {copied}</p>
           )}
         </div>
 
@@ -144,10 +137,7 @@ export default function ContactUs() {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm text-gray-300 mb-2"
-                >
+                <label htmlFor="name" className="block text-sm text-gray-300 mb-2">
                   Your Name *
                 </label>
                 <input
@@ -158,10 +148,7 @@ export default function ContactUs() {
                 />
               </div>
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm text-gray-300 mb-2"
-                >
+                <label htmlFor="email" className="block text-sm text-gray-300 mb-2">
                   Email *
                 </label>
                 <input
@@ -175,10 +162,7 @@ export default function ContactUs() {
             </div>
 
             <div>
-              <label
-                htmlFor="message"
-                className="block text-sm text-gray-300 mb-2"
-              >
+              <label htmlFor="message" className="block text-sm text-gray-300 mb-2">
                 Message *
               </label>
               <textarea
@@ -195,18 +179,11 @@ export default function ContactUs() {
               <button
                 type="submit"
                 disabled={status.type === 'loading'}
-                className={`btn ${
-                  status.type === 'loading' ? 'opacity-50' : 'btn-primary'
-                }`}
-              >
+                className={`btn ${status.type === 'loading' ? 'opacity-50' : 'btn-primary'}`}>
                 {status.type === 'loading' ? 'Sending…' : 'Send Message'}
               </button>
-              {status.type === 'error' && (
-                <p className="text-red-400">{status.message}</p>
-              )}
-              {status.type === 'success' && (
-                <p className="text-green-400">{status.message}</p>
-              )}
+              {status.type === 'error' && <p className="text-red-400">{status.message}</p>}
+              {status.type === 'success' && <p className="text-green-400">{status.message}</p>}
             </div>
 
             <p className="text-xs text-gray-500 mt-2">
