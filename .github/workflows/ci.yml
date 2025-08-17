@@ -27,6 +27,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Smoke test (external)
+        run: npm run smoke
+
       - name: Check .env.example required keys
         run: |
           required=(NEXT_PUBLIC_FIREBASE_API_KEY NEXT_PUBLIC_FIREBASE_PROJECT_ID)

@@ -1,3 +1,7 @@
+# Require review from the team for src changes
+@Albert25g @webistry
+
+docs/* @Albert25g
 # Code owners rules
 # Note: last matching pattern wins; put more specific rules last.
 

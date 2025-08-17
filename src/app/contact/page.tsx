@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+  import { useState, FormEvent } from 'react';
 
 type Status = {
   type: 'idle' | 'loading' | 'success' | 'error';
@@ -97,6 +97,11 @@ export default function ContactUs() {
         aria-hidden
         className="pointer-events-none absolute -z-10 inset-0 opacity-40 soft-glow"
       />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -z-10 inset-0 opacity-40 soft-glow"
+        />
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
 
       <section className="px-6 py-16">
         <div className="mx-auto max-w-3xl text-center">
