@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+. "$(dirname "$0")/_/husky.sh"
+
+# Run environment check and lint before push
+sh scripts/check-env-not-tracked.sh
+npm run lint

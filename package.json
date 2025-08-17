@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+  "prepare": "husky install",
     "start": "next start",
     "lint": "next lint"
   },
@@ -16,6 +17,7 @@
     "react-dom": "19.1.0"
   },
   "devDependencies": {
+  "husky": "^8.0.0",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
