@@ -9,10 +9,12 @@ We've identified that a local `.env.local` file containing development Firebase 
 If you have not yet rotated any keys, we've recommended rotating the Firebase keys as a precaution. If you have already rotated keys, thank you.
 
 Planned action (if authorized):
+
 - Optionally run a history scrub (BFG) to permanently remove `.env.local` and its backups from git history.
 - This requires a force-push to `main` and will change commit history.
 
 What you must do if we do this:
+
 1. Back up any local changes you may have in your clones (stash them or create a topic branch).
 2. After we complete the cleanup and force-push, delete your local clone and re-clone from the remote:
    - rm -rf your-local-repo

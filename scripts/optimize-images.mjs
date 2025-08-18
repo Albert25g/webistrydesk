@@ -21,8 +21,12 @@ async function optimize(file) {
   try {
     const buf = await fs.readFile(file);
     const base = file.replace(/\.(jpe?g|png)$/i, '');
-    await sharp(buf).webp({ quality: 80 }).toFile(base + '.webp');
-    await sharp(buf).avif({ quality: 60 }).toFile(base + '.avif');
+    await sharp(buf)
+      .webp({ quality: 80 })
+      .toFile(base + '.webp');
+    await sharp(buf)
+      .avif({ quality: 60 })
+      .toFile(base + '.avif');
     console.log('optimized', file);
   } catch (err) {
     console.error('failed to optimize', file, err.message || err);
