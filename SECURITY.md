@@ -43,3 +43,8 @@ If you'd like me to:
 
 - prepare the full BFG script and collaborator instructions, say "prepare BFG";
 - or only push the `SECURITY.md` commit (I will push it by default as requested), say "done" or "push".
+
+## Rotation record
+
+- Firebase API key rotated: 2025-08-18 (local & Vercel updated). Old key disabled after verification.
+
