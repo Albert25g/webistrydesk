@@ -1,17 +1,17 @@
 Repository history-scrub plan using BFG (review before running)
 
-Purpose
--------
+## Purpose
+
 This document contains a safe, repeatable plan to remove committed `.env.local` files or other secrets from repository history using the BFG Repo-Cleaner. This is destructive to history and requires a force-push; rotate secrets before doing this.
 
-Prerequisites
--------------
+## Prerequisites
+
 - Local machine with `git`, `java` (BFG requires Java 8+), and `bfg.jar` installed.
 - Have rotated any exposed keys already. Keep records of rotation.
 - Confirm you will notify collaborators to re-clone the repository after the force-push.
 
-Steps
------
+## Steps
+
 1. Create a mirror clone of the repo (work outside your working copy):
 
 ```bash
@@ -41,8 +41,8 @@ git push --force
 
 5. Instruct all collaborators to re-clone the repository (old clones still contain the secrets).
 
-Notes
------
+## Notes
+
 - BFG is much faster and simpler than `git filter-branch`. It operates on a bare/mirror repo.
 - If you need to remove specific secret strings (like API keys), use `--replace-text` with a file listing the exact strings — but exercise caution: pattern matches may cause unintended removals.
 - After force-push, GitHub actions and other external integrations using existing checks may need reconfiguration.
