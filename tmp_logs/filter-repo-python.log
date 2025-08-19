@@ -1,0 +1,3 @@
+Using mirror: /tmp/tmp.hZNERFQWpK/repo.git
+git_filter_repo.py: error: unrecognized arguments: --paths-glob .env.local --paths-glob *.env.local.bak* --paths-glob firebase.json.bak.* /tmp/tmp.hZNERFQWpK/repo.git
+Running reflog expire and aggressive gc (local only)
