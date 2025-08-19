@@ -14,14 +14,16 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.2.6",
+    "@fontsource/orbitron": "^5.2.6",
     "@vercel/blob": "^1.1.1",
     "firebase": "^12.1.0",
+    "framer-motion": "^12.23.12",
     "next": "15.4.6",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
   "devDependencies": {
-    "husky": "^8.0.0",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
@@ -29,9 +31,10 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
+    "husky": "^8.0.0",
+    "sharp": "^0.34.3",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "sharp": "^0.34.3"
+    "typescript": "^5"
   },
   "engines": {
     "node": ">=18.17 <23"
