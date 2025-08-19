@@ -38,3 +38,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## Developer guide
 
 See `DEVELOPER_GUIDE.md` for onboarding, environment setup, Husky/CI, and troubleshooting steps.
+
+For repository administrators: See `BRANCH_PROTECTION_SETUP.md` to enable branch protection on the main branch.
