@@ -10,7 +10,8 @@
     "lint": "next lint",
     "images:optimize": "node ./scripts/optimize-images.mjs",
     "smoke": "node ./scripts/smoke.mjs",
-    "test": "npm run smoke"
+    "test": "npm run smoke",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@vercel/blob": "^1.1.1",
