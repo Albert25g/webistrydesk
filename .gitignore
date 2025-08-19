@@ -44,3 +44,21 @@ next-env.d.ts
 # Env files
 .env
 .env.local
+# Next.js
+.next/
+out/
+# Env
+.env.*
+# Logs & tmp
+*.log
+tmp_logs/
+dev.log
+# OS/Editor
+*.swp
+.idea/
+.vscode/
+# Vercel
+.vercel/
+# Node
+node_modules/
+pnpm-debug.log*
