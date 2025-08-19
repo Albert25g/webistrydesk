@@ -1,0 +1,45 @@
+build-and-lint	Build	2025-08-18T01:32:27.8258137Z    Linting and checking validity of types ...
+build-and-lint	Build	2025-08-18T01:32:31.0645658Z    Collecting page data ...
+build-and-lint	Build	2025-08-18T01:32:33.6868887Z    Generating static pages (0/18) ...
+build-and-lint	Build	2025-08-18T01:32:34.6287001Z    Generating static pages (4/18) 
+build-and-lint	Build	2025-08-18T01:32:34.6287658Z    Generating static pages (8/18) 
+build-and-lint	Build	2025-08-18T01:32:34.6288183Z    Generating static pages (13/18) 
+build-and-lint	Build	2025-08-18T01:32:34.6499097Z  ✓ Generating static pages (18/18)
+build-and-lint	Build	2025-08-18T01:32:35.1181647Z    Finalizing page optimization ...
+build-and-lint	Build	2025-08-18T01:32:35.1283670Z    Collecting build traces ...
+build-and-lint	Build	2025-08-18T01:32:41.0712250Z 
+build-and-lint	Build	2025-08-18T01:32:41.0741057Z Route (app)                                 Size  First Load JS
+build-and-lint	Build	2025-08-18T01:32:41.0743184Z ┌ ○ /                                      170 B         103 kB
+build-and-lint	Build	2025-08-18T01:32:41.0744138Z ├ ○ /_not-found                            989 B         101 kB
+build-and-lint	Build	2025-08-18T01:32:41.0745091Z ├ ƒ /api/contact                           136 B        99.7 kB
+build-and-lint	Build	2025-08-18T01:32:41.0746030Z ├ ƒ /api/health                            136 B        99.7 kB
+build-and-lint	Build	2025-08-18T01:32:41.0746615Z ├ ƒ /api/upload                            136 B        99.7 kB
+build-and-lint	Build	2025-08-18T01:32:41.0747062Z ├ ○ /auth/debug                            136 B        99.7 kB
+build-and-lint	Build	2025-08-18T01:32:41.0747829Z ├ ○ /contact                             1.83 kB         101 kB
+build-and-lint	Build	2025-08-18T01:32:41.0748523Z ├ ○ /contact-us                            136 B        99.7 kB
+build-and-lint	Build	2025-08-18T01:32:41.0748987Z ├ ○ /dashboard                           2.05 kB         198 kB
+build-and-lint	Build	2025-08-18T01:32:41.0749672Z ├ ○ /login                               1.25 kB         194 kB
+build-and-lint	Build	2025-08-18T01:32:41.0750318Z ├ ○ /register                            1.25 kB         194 kB
+build-and-lint	Build	2025-08-18T01:32:41.0751206Z ├ ○ /services/ai-tools                     170 B         103 kB
+build-and-lint	Build	2025-08-18T01:32:41.0752323Z ├ ○ /services/development                  170 B         103 kB
+build-and-lint	Build	2025-08-18T01:32:41.0753300Z ├ ○ /services/web-design                   170 B         103 kB
+build-and-lint	Build	2025-08-18T01:32:41.0754223Z └ ○ /upload                                616 B         100 kB
+build-and-lint	Build	2025-08-18T01:32:41.0754914Z + First Load JS shared by all            99.6 kB
+build-and-lint	Build	2025-08-18T01:32:41.0755677Z   ├ chunks/4bd1b696-cf72ae8a39fa05aa.js  54.1 kB
+build-and-lint	Build	2025-08-18T01:32:41.0756395Z   ├ chunks/964-7a34cadcb7695cec.js       43.5 kB
+build-and-lint	Build	2025-08-18T01:32:41.0757098Z   └ other shared chunks (total)          1.92 kB
+build-and-lint	Build	2025-08-18T01:32:41.0757457Z 
+build-and-lint	Build	2025-08-18T01:32:41.0757476Z 
+build-and-lint	Build	2025-08-18T01:32:41.0757737Z ○  (Static)   prerendered as static content
+build-and-lint	Build	2025-08-18T01:32:41.0758126Z ƒ  (Dynamic)  server-rendered on demand
+build-and-lint	Build	2025-08-18T01:32:41.0758301Z 
+build-and-lint	Lint	﻿2025-08-18T01:32:41.1223503Z ##[group]Run npm run lint
+build-and-lint	Lint	2025-08-18T01:32:41.1223797Z [36;1mnpm run lint[0m
+build-and-lint	Lint	2025-08-18T01:32:41.1264274Z shell: /usr/bin/bash -e {0}
+build-and-lint	Lint	2025-08-18T01:32:41.1264525Z ##[endgroup]
+build-and-lint	Lint	2025-08-18T01:32:41.2372621Z 
+build-and-lint	Lint	2025-08-18T01:32:41.2373206Z > webistrydesk@0.1.0 lint
+build-and-lint	Lint	2025-08-18T01:32:41.2373546Z > next lint
+build-and-lint	Lint	2025-08-18T01:32:41.2373673Z 
+build-and-lint	Lint	2025-08-18T01:32:43.0296065Z ✔ No ESLint warnings or errors
+build-and-lint	Smoke test (external)	﻿2025-08-18T01:32:43.1310919Z ##[group]Run npm run smoke

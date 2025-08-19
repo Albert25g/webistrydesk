@@ -1,0 +1,240 @@
+build-and-lint	Set up job	﻿2025-08-18T01:31:58.6855377Z Current runner version: '2.327.1'
+build-and-lint	Set up job	2025-08-18T01:31:58.6888597Z ##[group]Operating System
+build-and-lint	Set up job	2025-08-18T01:31:58.6889723Z Ubuntu
+build-and-lint	Set up job	2025-08-18T01:31:58.6890647Z 24.04.2
+build-and-lint	Set up job	2025-08-18T01:31:58.6891378Z LTS
+build-and-lint	Set up job	2025-08-18T01:31:58.6892414Z ##[endgroup]
+build-and-lint	Set up job	2025-08-18T01:31:58.6893313Z ##[group]Runner Image
+build-and-lint	Set up job	2025-08-18T01:31:58.6894329Z Image: ubuntu-24.04
+build-and-lint	Set up job	2025-08-18T01:31:58.6895156Z Version: 20250810.1.0
+build-and-lint	Set up job	2025-08-18T01:31:58.6896968Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250810.1/images/ubuntu/Ubuntu2404-Readme.md
+build-and-lint	Set up job	2025-08-18T01:31:58.6899433Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250810.1
+build-and-lint	Set up job	2025-08-18T01:31:58.6900897Z ##[endgroup]
+build-and-lint	Set up job	2025-08-18T01:31:58.6901812Z ##[group]Runner Image Provisioner
+build-and-lint	Set up job	2025-08-18T01:31:58.6902943Z 2.0.449.1
+build-and-lint	Set up job	2025-08-18T01:31:58.6903440Z ##[endgroup]
+build-and-lint	Set up job	2025-08-18T01:31:58.6904590Z ##[group]GITHUB_TOKEN Permissions
+build-and-lint	Set up job	2025-08-18T01:31:58.6906800Z Contents: read
+build-and-lint	Set up job	2025-08-18T01:31:58.6907321Z Metadata: read
+build-and-lint	Set up job	2025-08-18T01:31:58.6907948Z Packages: read
+build-and-lint	Set up job	2025-08-18T01:31:58.6908645Z ##[endgroup]
+build-and-lint	Set up job	2025-08-18T01:31:58.6910822Z Secret source: Actions
+build-and-lint	Set up job	2025-08-18T01:31:58.6911533Z Prepare workflow directory
+build-and-lint	Set up job	2025-08-18T01:31:58.7234177Z Prepare all required actions
+build-and-lint	Set up job	2025-08-18T01:31:58.7285931Z Getting action download info
+build-and-lint	Set up job	2025-08-18T01:31:59.2076062Z Download action repository 'actions/checkout@v4' (SHA:08eba0b27e820071cde6df949e0beb9ba4906955)
+build-and-lint	Set up job	2025-08-18T01:31:59.7387299Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+build-and-lint	Set up job	2025-08-18T01:31:59.9131272Z Complete job name: build-and-lint
+build-and-lint	Checkout	﻿2025-08-18T01:31:59.9829700Z ##[group]Run actions/checkout@v4
+build-and-lint	Checkout	2025-08-18T01:31:59.9830597Z with:
+build-and-lint	Checkout	2025-08-18T01:31:59.9831043Z   repository: Albert25g/webistrydesk
+build-and-lint	Checkout	2025-08-18T01:31:59.9831733Z   token: ***
+build-and-lint	Checkout	2025-08-18T01:31:59.9832323Z   ssh-strict: true
+build-and-lint	Checkout	2025-08-18T01:31:59.9832742Z   ssh-user: git
+build-and-lint	Checkout	2025-08-18T01:31:59.9833179Z   persist-credentials: true
+build-and-lint	Checkout	2025-08-18T01:31:59.9833647Z   clean: true
+build-and-lint	Checkout	2025-08-18T01:31:59.9834069Z   sparse-checkout-cone-mode: true
+build-and-lint	Checkout	2025-08-18T01:31:59.9834593Z   fetch-depth: 1
+build-and-lint	Checkout	2025-08-18T01:31:59.9835017Z   fetch-tags: false
+build-and-lint	Checkout	2025-08-18T01:31:59.9835524Z   show-progress: true
+build-and-lint	Checkout	2025-08-18T01:31:59.9835958Z   lfs: false
+build-and-lint	Checkout	2025-08-18T01:31:59.9836361Z   submodules: false
+build-and-lint	Checkout	2025-08-18T01:31:59.9836787Z   set-safe-directory: true
+build-and-lint	Checkout	2025-08-18T01:31:59.9837532Z ##[endgroup]
+build-and-lint	Checkout	2025-08-18T01:32:00.1779757Z Syncing repository: Albert25g/webistrydesk
+build-and-lint	Checkout	2025-08-18T01:32:00.1782332Z ##[group]Getting Git version info
+build-and-lint	Checkout	2025-08-18T01:32:00.1783463Z Working directory is '/home/runner/work/webistrydesk/webistrydesk'
+build-and-lint	Checkout	2025-08-18T01:32:00.1785073Z [command]/usr/bin/git version
+build-and-lint	Checkout	2025-08-18T01:32:00.1841346Z git version 2.50.1
+build-and-lint	Checkout	2025-08-18T01:32:00.1874905Z ##[endgroup]
+build-and-lint	Checkout	2025-08-18T01:32:00.1891232Z Temporarily overriding HOME='/home/runner/work/_temp/cfe86d0a-4ab9-4b7f-91e0-15d6580a3c43' before making global git config changes
+build-and-lint	Checkout	2025-08-18T01:32:00.1894247Z Adding repository directory to the temporary git global config as a safe directory
+build-and-lint	Checkout	2025-08-18T01:32:00.1906260Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/webistrydesk/webistrydesk
+build-and-lint	Checkout	2025-08-18T01:32:00.1943009Z Deleting the contents of '/home/runner/work/webistrydesk/webistrydesk'
+build-and-lint	Checkout	2025-08-18T01:32:00.1946521Z ##[group]Initializing the repository
+build-and-lint	Checkout	2025-08-18T01:32:00.1952296Z [command]/usr/bin/git init /home/runner/work/webistrydesk/webistrydesk
+build-and-lint	Checkout	2025-08-18T01:32:00.2023831Z hint: Using 'master' as the name for the initial branch. This default branch name
+build-and-lint	Checkout	2025-08-18T01:32:00.2025935Z hint: is subject to change. To configure the initial branch name to use in all
+build-and-lint	Checkout	2025-08-18T01:32:00.2027922Z hint: of your new repositories, which will suppress this warning, call:
+build-and-lint	Checkout	2025-08-18T01:32:00.2029460Z hint:
+build-and-lint	Checkout	2025-08-18T01:32:00.2030563Z hint: 	git config --global init.defaultBranch <name>
+build-and-lint	Checkout	2025-08-18T01:32:00.2031929Z hint:
+build-and-lint	Checkout	2025-08-18T01:32:00.2034195Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+build-and-lint	Checkout	2025-08-18T01:32:00.2037428Z hint: 'development'. The just-created branch can be renamed via this command:
+build-and-lint	Checkout	2025-08-18T01:32:00.2039468Z hint:
+build-and-lint	Checkout	2025-08-18T01:32:00.2040408Z hint: 	git branch -m <name>
+build-and-lint	Checkout	2025-08-18T01:32:00.2041607Z hint:
+build-and-lint	Checkout	2025-08-18T01:32:00.2043689Z hint: Disable this message with "git config set advice.defaultBranchName false"
+build-and-lint	Checkout	2025-08-18T01:32:00.2046428Z Initialized empty Git repository in /home/runner/work/webistrydesk/webistrydesk/.git/
+build-and-lint	Checkout	2025-08-18T01:32:00.2051643Z [command]/usr/bin/git remote add origin https://github.com/Albert25g/webistrydesk
+build-and-lint	Checkout	2025-08-18T01:32:00.2083602Z ##[endgroup]
+build-and-lint	Checkout	2025-08-18T01:32:00.2085398Z ##[group]Disabling automatic garbage collection
+build-and-lint	Checkout	2025-08-18T01:32:00.2087687Z [command]/usr/bin/git config --local gc.auto 0
+build-and-lint	Checkout	2025-08-18T01:32:00.2116750Z ##[endgroup]
+build-and-lint	Checkout	2025-08-18T01:32:00.2118447Z ##[group]Setting up auth
+build-and-lint	Checkout	2025-08-18T01:32:00.2121842Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build-and-lint	Checkout	2025-08-18T01:32:00.2153004Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build-and-lint	Checkout	2025-08-18T01:32:00.2462712Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build-and-lint	Checkout	2025-08-18T01:32:00.2492233Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build-and-lint	Checkout	2025-08-18T01:32:00.2718382Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build-and-lint	Checkout	2025-08-18T01:32:00.2756045Z ##[endgroup]
+build-and-lint	Checkout	2025-08-18T01:32:00.2758344Z ##[group]Fetching the repository
+build-and-lint	Checkout	2025-08-18T01:32:00.2766410Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +941917ec3243ea955ba88bfeb33d637a78d38189:refs/remotes/origin/main
+build-and-lint	Checkout	2025-08-18T01:32:00.6941034Z From https://github.com/Albert25g/webistrydesk
+build-and-lint	Checkout	2025-08-18T01:32:00.6944262Z  * [new ref]         941917ec3243ea955ba88bfeb33d637a78d38189 -> origin/main
+build-and-lint	Checkout	2025-08-18T01:32:00.6967926Z ##[endgroup]
+build-and-lint	Checkout	2025-08-18T01:32:00.6969846Z ##[group]Determining the checkout info
+build-and-lint	Checkout	2025-08-18T01:32:00.6971606Z ##[endgroup]
+build-and-lint	Checkout	2025-08-18T01:32:00.6974435Z [command]/usr/bin/git sparse-checkout disable
+build-and-lint	Checkout	2025-08-18T01:32:00.7012637Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+build-and-lint	Checkout	2025-08-18T01:32:00.7042419Z ##[group]Checking out the ref
+build-and-lint	Checkout	2025-08-18T01:32:00.7045817Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+build-and-lint	Checkout	2025-08-18T01:32:00.7153403Z Switched to a new branch 'main'
+build-and-lint	Checkout	2025-08-18T01:32:00.7156092Z branch 'main' set up to track 'origin/main'.
+build-and-lint	Checkout	2025-08-18T01:32:00.7163726Z ##[endgroup]
+build-and-lint	Checkout	2025-08-18T01:32:00.7198930Z [command]/usr/bin/git log -1 --format=%H
+build-and-lint	Checkout	2025-08-18T01:32:00.7221835Z 941917ec3243ea955ba88bfeb33d637a78d38189
+build-and-lint	Setup Node	﻿2025-08-18T01:32:00.7515333Z ##[group]Run actions/setup-node@v4
+build-and-lint	Setup Node	2025-08-18T01:32:00.7516447Z with:
+build-and-lint	Setup Node	2025-08-18T01:32:00.7517206Z   node-version: 20
+build-and-lint	Setup Node	2025-08-18T01:32:00.7518023Z   cache: npm
+build-and-lint	Setup Node	2025-08-18T01:32:00.7518900Z   cache-dependency-path: package-lock.json
+build-and-lint	Setup Node	2025-08-18T01:32:00.7520039Z   always-auth: false
+build-and-lint	Setup Node	2025-08-18T01:32:00.7520891Z   check-latest: false
+build-and-lint	Setup Node	2025-08-18T01:32:00.7522191Z   token: ***
+build-and-lint	Setup Node	2025-08-18T01:32:00.7523008Z ##[endgroup]
+build-and-lint	Setup Node	2025-08-18T01:32:00.9262813Z Found in cache @ /opt/hostedtoolcache/node/20.19.4/x64
+build-and-lint	Setup Node	2025-08-18T01:32:00.9270435Z ##[group]Environment details
+build-and-lint	Setup Node	2025-08-18T01:32:01.2630526Z node: v20.19.4
+build-and-lint	Setup Node	2025-08-18T01:32:01.2632331Z npm: 10.8.2
+build-and-lint	Setup Node	2025-08-18T01:32:01.2633599Z yarn: 1.22.22
+build-and-lint	Setup Node	2025-08-18T01:32:01.2635941Z ##[endgroup]
+build-and-lint	Setup Node	2025-08-18T01:32:01.2657928Z [command]/opt/hostedtoolcache/node/20.19.4/x64/bin/npm config get cache
+build-and-lint	Setup Node	2025-08-18T01:32:01.3806173Z /home/runner/.npm
+build-and-lint	Setup Node	2025-08-18T01:32:01.6793897Z Cache hit for: node-cache-Linux-x64-npm-4cc276cd2d519f97e81010b82d986212ee47db330f589fd26dea838f513a9353
+build-and-lint	Setup Node	2025-08-18T01:32:03.0101220Z Received 0 of 187435952 (0.0%), 0.0 MBs/sec
+build-and-lint	Setup Node	2025-08-18T01:32:04.0106942Z Received 104857600 of 187435952 (55.9%), 50.0 MBs/sec
+build-and-lint	Setup Node	2025-08-18T01:32:04.8013126Z Received 187435952 of 187435952 (100.0%), 64.2 MBs/sec
+build-and-lint	Setup Node	2025-08-18T01:32:04.8013844Z Cache Size: ~179 MB (187435952 B)
+build-and-lint	Setup Node	2025-08-18T01:32:04.8083924Z [command]/usr/bin/tar -xf /home/runner/work/_temp/d77dce25-1d0c-4fe7-bca8-04a26c53ce83/cache.tzst -P -C /home/runner/work/webistrydesk/webistrydesk --use-compress-program unzstd
+build-and-lint	Setup Node	2025-08-18T01:32:05.1430571Z Cache restored successfully
+build-and-lint	Setup Node	2025-08-18T01:32:05.1788983Z Cache restored from key: node-cache-Linux-x64-npm-4cc276cd2d519f97e81010b82d986212ee47db330f589fd26dea838f513a9353
+build-and-lint	Install dependencies	﻿2025-08-18T01:32:05.1937265Z ##[group]Run npm ci
+build-and-lint	Install dependencies	2025-08-18T01:32:05.1937607Z [36;1mnpm ci[0m
+build-and-lint	Install dependencies	2025-08-18T01:32:05.2010249Z shell: /usr/bin/bash -e {0}
+build-and-lint	Install dependencies	2025-08-18T01:32:05.2010581Z ##[endgroup]
+build-and-lint	Install dependencies	2025-08-18T01:32:14.6945595Z 
+build-and-lint	Install dependencies	2025-08-18T01:32:14.6953540Z > webistrydesk@0.1.0 prepare
+build-and-lint	Install dependencies	2025-08-18T01:32:14.6954233Z > husky install
+build-and-lint	Install dependencies	2025-08-18T01:32:14.6954479Z 
+build-and-lint	Install dependencies	2025-08-18T01:32:14.7457269Z husky - Git hooks installed
+build-and-lint	Install dependencies	2025-08-18T01:32:14.7575799Z 
+build-and-lint	Install dependencies	2025-08-18T01:32:14.7576426Z added 431 packages, and audited 432 packages in 9s
+build-and-lint	Install dependencies	2025-08-18T01:32:14.7576923Z 
+build-and-lint	Install dependencies	2025-08-18T01:32:14.7577230Z 145 packages are looking for funding
+build-and-lint	Install dependencies	2025-08-18T01:32:14.7577753Z   run `npm fund` for details
+build-and-lint	Install dependencies	2025-08-18T01:32:14.7587951Z 
+build-and-lint	Install dependencies	2025-08-18T01:32:14.7588196Z found 0 vulnerabilities
+build-and-lint	Build	﻿2025-08-18T01:32:14.8265673Z ##[group]Run npm run build --if-present
+build-and-lint	Build	2025-08-18T01:32:14.8266042Z [36;1mnpm run build --if-present[0m
+build-and-lint	Build	2025-08-18T01:32:14.8306560Z shell: /usr/bin/bash -e {0}
+build-and-lint	Build	2025-08-18T01:32:14.8306825Z ##[endgroup]
+build-and-lint	Build	2025-08-18T01:32:14.9411949Z 
+build-and-lint	Build	2025-08-18T01:32:14.9412893Z > webistrydesk@0.1.0 build
+build-and-lint	Build	2025-08-18T01:32:14.9413560Z > next build
+build-and-lint	Build	2025-08-18T01:32:15.6573203Z 
+build-and-lint	Build	2025-08-18T01:32:15.6575116Z ⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+build-and-lint	Build	2025-08-18T01:32:15.6833270Z Attention: Next.js now collects completely anonymous telemetry regarding usage.
+build-and-lint	Build	2025-08-18T01:32:15.6834662Z This information is used to shape Next.js' roadmap and prioritize features.
+build-and-lint	Build	2025-08-18T01:32:15.6836195Z You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+build-and-lint	Build	2025-08-18T01:32:15.6837289Z https://nextjs.org/telemetry
+build-and-lint	Build	2025-08-18T01:32:15.6837613Z 
+build-and-lint	Build	2025-08-18T01:32:15.7891528Z    ▲ Next.js 15.4.6
+build-and-lint	Build	2025-08-18T01:32:15.7892189Z 
+build-and-lint	Build	2025-08-18T01:32:15.8156189Z    Creating an optimized production build ...
+build-and-lint	Build	2025-08-18T01:32:27.8211296Z  ✓ Compiled successfully in 9.0s
+build-and-lint	Build	2025-08-18T01:32:27.8258137Z    Linting and checking validity of types ...
+build-and-lint	Build	2025-08-18T01:32:31.0645658Z    Collecting page data ...
+build-and-lint	Build	2025-08-18T01:32:33.6868887Z    Generating static pages (0/18) ...
+build-and-lint	Build	2025-08-18T01:32:34.6287001Z    Generating static pages (4/18) 
+build-and-lint	Build	2025-08-18T01:32:34.6287658Z    Generating static pages (8/18) 
+build-and-lint	Build	2025-08-18T01:32:34.6288183Z    Generating static pages (13/18) 
+build-and-lint	Build	2025-08-18T01:32:34.6499097Z  ✓ Generating static pages (18/18)
+build-and-lint	Build	2025-08-18T01:32:35.1181647Z    Finalizing page optimization ...
+build-and-lint	Build	2025-08-18T01:32:35.1283670Z    Collecting build traces ...
+build-and-lint	Build	2025-08-18T01:32:41.0712250Z 
+build-and-lint	Build	2025-08-18T01:32:41.0741057Z Route (app)                                 Size  First Load JS
+build-and-lint	Build	2025-08-18T01:32:41.0743184Z ┌ ○ /                                      170 B         103 kB
+build-and-lint	Build	2025-08-18T01:32:41.0744138Z ├ ○ /_not-found                            989 B         101 kB
+build-and-lint	Build	2025-08-18T01:32:41.0745091Z ├ ƒ /api/contact                           136 B        99.7 kB
+build-and-lint	Build	2025-08-18T01:32:41.0746030Z ├ ƒ /api/health                            136 B        99.7 kB
+build-and-lint	Build	2025-08-18T01:32:41.0746615Z ├ ƒ /api/upload                            136 B        99.7 kB
+build-and-lint	Build	2025-08-18T01:32:41.0747062Z ├ ○ /auth/debug                            136 B        99.7 kB
+build-and-lint	Build	2025-08-18T01:32:41.0747829Z ├ ○ /contact                             1.83 kB         101 kB
+build-and-lint	Build	2025-08-18T01:32:41.0748523Z ├ ○ /contact-us                            136 B        99.7 kB
+build-and-lint	Build	2025-08-18T01:32:41.0748987Z ├ ○ /dashboard                           2.05 kB         198 kB
+build-and-lint	Build	2025-08-18T01:32:41.0749672Z ├ ○ /login                               1.25 kB         194 kB
+build-and-lint	Build	2025-08-18T01:32:41.0750318Z ├ ○ /register                            1.25 kB         194 kB
+build-and-lint	Build	2025-08-18T01:32:41.0751206Z ├ ○ /services/ai-tools                     170 B         103 kB
+build-and-lint	Build	2025-08-18T01:32:41.0752323Z ├ ○ /services/development                  170 B         103 kB
+build-and-lint	Build	2025-08-18T01:32:41.0753300Z ├ ○ /services/web-design                   170 B         103 kB
+build-and-lint	Build	2025-08-18T01:32:41.0754223Z └ ○ /upload                                616 B         100 kB
+build-and-lint	Build	2025-08-18T01:32:41.0754914Z + First Load JS shared by all            99.6 kB
+build-and-lint	Build	2025-08-18T01:32:41.0755677Z   ├ chunks/4bd1b696-cf72ae8a39fa05aa.js  54.1 kB
+build-and-lint	Build	2025-08-18T01:32:41.0756395Z   ├ chunks/964-7a34cadcb7695cec.js       43.5 kB
+build-and-lint	Build	2025-08-18T01:32:41.0757098Z   └ other shared chunks (total)          1.92 kB
+build-and-lint	Build	2025-08-18T01:32:41.0757457Z 
+build-and-lint	Build	2025-08-18T01:32:41.0757476Z 
+build-and-lint	Build	2025-08-18T01:32:41.0757737Z ○  (Static)   prerendered as static content
+build-and-lint	Build	2025-08-18T01:32:41.0758126Z ƒ  (Dynamic)  server-rendered on demand
+build-and-lint	Build	2025-08-18T01:32:41.0758301Z 
+build-and-lint	Lint	﻿2025-08-18T01:32:41.1223503Z ##[group]Run npm run lint
+build-and-lint	Lint	2025-08-18T01:32:41.1223797Z [36;1mnpm run lint[0m
+build-and-lint	Lint	2025-08-18T01:32:41.1264274Z shell: /usr/bin/bash -e {0}
+build-and-lint	Lint	2025-08-18T01:32:41.1264525Z ##[endgroup]
+build-and-lint	Lint	2025-08-18T01:32:41.2372621Z 
+build-and-lint	Lint	2025-08-18T01:32:41.2373206Z > webistrydesk@0.1.0 lint
+build-and-lint	Lint	2025-08-18T01:32:41.2373546Z > next lint
+build-and-lint	Lint	2025-08-18T01:32:41.2373673Z 
+build-and-lint	Lint	2025-08-18T01:32:43.0296065Z ✔ No ESLint warnings or errors
+build-and-lint	Smoke test (external)	﻿2025-08-18T01:32:43.1310919Z ##[group]Run npm run smoke
+build-and-lint	Smoke test (external)	2025-08-18T01:32:43.1311209Z [36;1mnpm run smoke[0m
+build-and-lint	Smoke test (external)	2025-08-18T01:32:43.1351112Z shell: /usr/bin/bash -e {0}
+build-and-lint	Smoke test (external)	2025-08-18T01:32:43.1351346Z env:
+build-and-lint	Smoke test (external)	2025-08-18T01:32:43.1351510Z   SMOKE_URL: 
+build-and-lint	Smoke test (external)	2025-08-18T01:32:43.1351688Z ##[endgroup]
+build-and-lint	Smoke test (external)	2025-08-18T01:32:43.2420141Z 
+build-and-lint	Smoke test (external)	2025-08-18T01:32:43.2420683Z > webistrydesk@0.1.0 smoke
+build-and-lint	Smoke test (external)	2025-08-18T01:32:43.2421168Z > node ./scripts/smoke.mjs
+build-and-lint	Smoke test (external)	2025-08-18T01:32:43.2421385Z 
+build-and-lint	Smoke test (external)	2025-08-18T01:32:43.2753993Z SMOKE_URL not set — skipping smoke check.
+build-and-lint	Check .env.example required keys	﻿2025-08-18T01:32:43.2862977Z ##[group]Run required=(NEXT_PUBLIC_FIREBASE_API_KEY NEXT_PUBLIC_FIREBASE_PROJECT_ID)
+build-and-lint	Check .env.example required keys	2025-08-18T01:32:43.2863546Z [36;1mrequired=(NEXT_PUBLIC_FIREBASE_API_KEY NEXT_PUBLIC_FIREBASE_PROJECT_ID)[0m
+build-and-lint	Check .env.example required keys	2025-08-18T01:32:43.2863905Z [36;1mmissing=0[0m
+build-and-lint	Check .env.example required keys	2025-08-18T01:32:43.2864109Z [36;1mfor k in "${required[@]}"; do[0m
+build-and-lint	Check .env.example required keys	2025-08-18T01:32:43.2864379Z [36;1m  if ! grep -q "^${k}=" .env.example; then[0m
+build-and-lint	Check .env.example required keys	2025-08-18T01:32:43.2864669Z [36;1m    echo "Missing $k in .env.example"[0m
+build-and-lint	Check .env.example required keys	2025-08-18T01:32:43.2864922Z [36;1m    missing=1[0m
+build-and-lint	Check .env.example required keys	2025-08-18T01:32:43.2865114Z [36;1m  fi[0m
+build-and-lint	Check .env.example required keys	2025-08-18T01:32:43.2865276Z [36;1mdone[0m
+build-and-lint	Check .env.example required keys	2025-08-18T01:32:43.2865453Z [36;1mif [ $missing -ne 0 ]; then[0m
+build-and-lint	Check .env.example required keys	2025-08-18T01:32:43.2865764Z [36;1m  echo "Please populate .env.example with required keys."[0m
+build-and-lint	Check .env.example required keys	2025-08-18T01:32:43.2866057Z [36;1m  exit 1[0m
+build-and-lint	Check .env.example required keys	2025-08-18T01:32:43.2866227Z [36;1mfi[0m
+build-and-lint	Check .env.example required keys	2025-08-18T01:32:43.2906296Z shell: /usr/bin/bash -e {0}
+build-and-lint	Check .env.example required keys	2025-08-18T01:32:43.2906552Z ##[endgroup]
+build-and-lint	Post Setup Node	﻿2025-08-18T01:32:43.3050952Z Post job cleanup.
+build-and-lint	Post Setup Node	2025-08-18T01:32:43.4575280Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-4cc276cd2d519f97e81010b82d986212ee47db330f589fd26dea838f513a9353, not saving cache.
+build-and-lint	Post Checkout	﻿2025-08-18T01:32:43.4691854Z Post job cleanup.
+build-and-lint	Post Checkout	2025-08-18T01:32:43.5642787Z [command]/usr/bin/git version
+build-and-lint	Post Checkout	2025-08-18T01:32:43.5679209Z git version 2.50.1
+build-and-lint	Post Checkout	2025-08-18T01:32:43.5720870Z Temporarily overriding HOME='/home/runner/work/_temp/4059dffa-0616-4449-843a-b25519c24cdf' before making global git config changes
+build-and-lint	Post Checkout	2025-08-18T01:32:43.5721819Z Adding repository directory to the temporary git global config as a safe directory
+build-and-lint	Post Checkout	2025-08-18T01:32:43.5733252Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/webistrydesk/webistrydesk
+build-and-lint	Post Checkout	2025-08-18T01:32:43.5766233Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build-and-lint	Post Checkout	2025-08-18T01:32:43.5797975Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build-and-lint	Post Checkout	2025-08-18T01:32:43.6024897Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build-and-lint	Post Checkout	2025-08-18T01:32:43.6045508Z http.https://github.com/.extraheader
+build-and-lint	Post Checkout	2025-08-18T01:32:43.6057635Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+build-and-lint	Post Checkout	2025-08-18T01:32:43.6088668Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build-and-lint	Complete job	﻿2025-08-18T01:32:43.6409251Z Cleaning up orphan processes
