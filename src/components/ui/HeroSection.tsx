@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import '@fontsource/orbitron/700.css';
 import '@fontsource/inter/400.css';
