@@ -1,19 +1,8 @@
-import dynamic from 'next/dynamic';
-
-const HeroSection = dynamic(() => import('../components/ui/HeroSection'), {
-  ssr: false,
-});
-const ServicesSection = dynamic(
-  () => import('../components/ui/ServicesSection'),
-  { ssr: false }
-);
-const AboutSection = dynamic(() => import('../components/ui/AboutSection'), {
-  ssr: false,
-});
-const CTABanner = dynamic(() => import('../components/ui/CTABanner'), {
-  ssr: false,
-});
-const SiteFooter = dynamic(() => import('../components/ui/SiteFooter'));
+import HeroSection from '../components/ui/HeroSection';
+import ServicesSection from '../components/ui/ServicesSection';
+import AboutSection from '../components/ui/AboutSection';
+import CTABanner from '../components/ui/CTABanner';
+import SiteFooter from '../components/ui/SiteFooter';
 
 export default function Home() {
   return (
