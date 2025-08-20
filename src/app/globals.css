@@ -34,14 +34,20 @@ body {
       transparent 1px
     );
   background-size: auto, auto;
+}
+
 .card {
   background-color: var(--elev1);
   border-radius: 2rem; /* matches rounded-3xl */
   box-shadow: 0 10px 30px rgba(11, 15, 20, 0.45), 0 6px 12px rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 .card-soft {
   background-color: var(--elev2);
   border-radius: 1.5rem; /* matches rounded-2xl */
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -49,21 +55,35 @@ body {
   padding: 0.625rem 1.25rem; /* py-2.5 px-5 */
   font-weight: 500;
   transition: all 0.2s;
+}
+
 .btn-primary {
   color: white;
   background-color: var(--brand);
+}
+
 .btn-primary:hover {
   background-color: var(--brand-dark);
+}
+
 .btn-ghost {
   background-color: transparent;
+}
+
 .btn-ghost:hover {
   background-color: rgba(255, 255, 255, 0.05);
+}
+
 .btn-gold {
   color: black;
   background-color: var(--gold);
   box-shadow: 0 8px 24px rgba(199, 164, 91, 0.22);
+}
+
 .btn-gold:hover {
   background-color: var(--gold-dark);
+}
+
 .badge {
   border-radius: 9999px; /* rounded-full */
   padding: 0.25rem 0.75rem; /* px-3 py-1 */
@@ -71,37 +91,40 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .hr-gold {
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(199, 164, 91, 0.7),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(199, 164, 91, 0.7), transparent);
+}
+
 .node-line {
   height: 2px;
   background: linear-gradient(to right, rgba(199, 164, 91, 0.5), transparent);
+}
+
 .node-dot {
   width: 10px;
   height: 10px;
   border-radius: 9999px;
-  background: radial-gradient(
-    circle,
-    rgba(199, 164, 91, 1) 0%,
-    rgba(199, 164, 91, 0.4) 60%,
-    transparent 70%
+  background: radial-gradient(circle, rgba(199, 164, 91, 1) 0%, rgba(199, 164, 91, 0.4) 60%, transparent 70%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
     transition-duration: 0.01ms !important;
   }
+}
+
 /* Typography plugin base tweaks */
-.prose {
+.prose {}
 .prose a {
   color: var(--cyan);
+}
 .prose h1,
 .prose h2,
-.prose h3 {
+.prose h3 {}
 .prose p {
   color: var(--muted);
+}
