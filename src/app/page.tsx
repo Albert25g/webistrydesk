@@ -1,19 +1,8 @@
-import HeroSection from '../components/ui/HeroSection';
-import ServicesSection from '../components/ui/ServicesSection';
-import AboutSection from '../components/ui/AboutSection';
-import LocationsSection from '../components/ui/LocationsSection';
-import CTABanner from '../components/ui/CTABanner';
-import SiteFooter from '../components/ui/SiteFooter';
-
-export default function Home() {
+export default function Page() {
   return (
-    <main className="relative min-h-screen bg-black text-white font-inter">
-      <HeroSection />
-      <ServicesSection />
-      <LocationsSection />
-      <AboutSection />
-      <CTABanner />
-      <SiteFooter />
+    <main style={{padding:"2rem", color:"#E5E7EB", background:"#0B0F14", minHeight:"100vh"}}>
+      <h1 style={{fontSize:"2rem", margin:0}}>WebistryDesk</h1>
+      <p style={{opacity:.8, marginTop:8}}>Root route is live. Replace with executive sections once verified.</p>
     </main>
   );
 }
