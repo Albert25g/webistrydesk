@@ -1,8 +1,23 @@
-export default function Page() {
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import ValueProps from "@/components/ValueProps";
+import Proof from "@/components/Proof";
+import LocationsSection from "@/components/LocationsSection";
+import CTA from "@/components/CTA";
+import Footer from "@/components/Footer";
+
+export default function Page(){
   return (
-    <main style={{padding:"2rem", color:"#E5E7EB", background:"#0B0F14", minHeight:"100vh"}}>
-      <h1 style={{fontSize:"2rem", margin:0}}>WebistryDesk</h1>
-      <p style={{opacity:.8, marginTop:8}}>Root route is live. Replace with executive sections once verified.</p>
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <ValueProps />
+        <Proof />
+        <LocationsSection />
+        <CTA />
+      </main>
+      <Footer />
+    </>
   );
 }
