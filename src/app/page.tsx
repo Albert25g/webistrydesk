@@ -1,20 +1,16 @@
 import Header from '@/components/zerofour/Header';
-import Hero from '@/components/zerofour/Hero';
-import Feature1 from '@/components/zerofour/Feature1';
 import Footer from '@/components/zerofour/Footer';
 
-export default function Page(){
+export default function Page() {
   return (
     <>
       <Header />
-  <Hero />
-  <Feature1 />
-  <main className="min-h-[40vh]">
-        <div className="max-w-6xl mx-auto px-4 py-6">
-          <h1 className="sr-only">Zerofour template preview</h1>
-          <div className="border rounded overflow-hidden">
-            <iframe src="/zerofour/index.html" title="Zerofour preview" className="w-full h-[64vh]" style={{border:'none'}} />
-          </div>
+      <main className="min-h-screen flex items-center justify-center">
+        <div className="max-w-4xl mx-auto px-4 py-12 text-center">
+          <h1 className="text-2xl font-semibold">Blank starter page</h1>
+          <p className="mt-4 text-sm text-gray-600">
+            This is a clean starting point — header and footer only.
+          </p>
         </div>
       </main>
       <Footer />
