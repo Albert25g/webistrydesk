@@ -1,1 +1,0 @@
-git-filter-repo: error: unrecognized arguments: --paths-glob .env.local --paths-glob *.env.local.bak* --paths-glob firebase.json.bak.*

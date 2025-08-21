@@ -1,6 +1,0 @@
-Cloning cleaned remote to /tmp/post-clean.git
-Cloning into '/tmp/post-clean.git'...
-\nChecking for sensitive filenames in commit history (regex: \.env.local|firebase.json.bak|env.local.bak)
-\nSearching history for Firebase API key prefix "AIza" (this may take a moment)
-NO_API_KEY_PREFIX_MATCHES
-\nSearching current tree for project-id-like strings and .env.local file
