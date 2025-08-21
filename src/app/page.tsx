@@ -1,23 +1,10 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import ValueProps from "@/components/ValueProps";
-import Proof from "@/components/Proof";
-import LocationsSection from "@/components/LocationsSection";
-import CTA from "@/components/CTA";
-import Footer from "@/components/Footer";
-
 export default function Page(){
   return (
-    <>
-      <Navbar />
-      <main>
-        <Hero />
-        <ValueProps />
-        <Proof />
-        <LocationsSection />
-        <CTA />
-      </main>
-      <Footer />
-    </>
+    <div className="max-w-5xl mx-auto px-4 py-16">
+      {/* Placeholder area — add your sections/content here later */}
+      <div className="text-white/70 text-sm">
+        Placeholder page — ready for your content.
+      </div>
+    </div>
   );
 }
