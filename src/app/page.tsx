@@ -16,6 +16,43 @@ export default function Page() {
             small businesses. Friendly service in Nelspruit (Mbombela) and
             across South Africa.
           </p>
+
+          {/* Quick Services Overview Table */}
+          <div className="mt-12 mb-8">
+            <div className="table-container max-w-4xl mx-auto">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Service</th>
+                    <th className="text-center">Starting From</th>
+                    <th className="text-center">Timeline</th>
+                    <th className="text-center">Includes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="font-semibold">Website Development</td>
+                    <td className="text-center">R 5,000</td>
+                    <td className="text-center">2-4 weeks</td>
+                    <td className="text-center">Design + Development + SEO</td>
+                  </tr>
+                  <tr>
+                    <td className="font-semibold">E-commerce Store</td>
+                    <td className="text-center">R 8,000</td>
+                    <td className="text-center">3-6 weeks</td>
+                    <td className="text-center">Store + Payments + Training</td>
+                  </tr>
+                  <tr>
+                    <td className="font-semibold">Brand Identity</td>
+                    <td className="text-center">R 2,500</td>
+                    <td className="text-center">1-2 weeks</td>
+                    <td className="text-center">Logo + Guidelines + Assets</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           <div className="mt-8 flex justify-center gap-4">
             <Link
               href="/contact"
