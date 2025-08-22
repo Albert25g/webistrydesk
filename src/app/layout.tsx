@@ -13,9 +13,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="theme-color" content="#bfeffd" />
+        <meta name="theme-color" content="#ffffff" />
       </head>
-      <body style={{ background: '#bfeffd' }}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
