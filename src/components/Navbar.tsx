@@ -1,18 +1,16 @@
-import Link from 'next/link';
+import Link from "next/link";
+import Image from "next/image";
 
-export default function Navbar() {
+export default function Navbar(){
   return (
     <header className="sticky top-0 z-40 backdrop-blur border-b border-white/10 bg-black/20">
       <div className="container-tight flex h-16 items-center justify-between">
-        <Link
-          href="/"
-          className="flex items-center gap-2 font-semibold tracking-tight text-white"
-        >
-          <img
-            src="/Logo-webistrydesk.png"
-            alt="WebistryDesk Logo"
-            width="32"
-            height="32"
+        <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight text-white">
+          <Image 
+            src="/Logo-webistrydesk.png" 
+            alt="WebistryDesk Logo" 
+            width={32} 
+            height={32}
             className="rounded"
             onError={(e) => console.error('Image failed to load:', e)}
             onLoad={() => console.log('Image loaded successfully')}

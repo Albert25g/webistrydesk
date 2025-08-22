@@ -172,7 +172,7 @@ export default function ServicesPage() {
 
             {/* Features Comparison Table */}
             <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-              What's Included
+              What&apos;s Included
             </h3>
             <div className="table-container">
               <table className="table">
