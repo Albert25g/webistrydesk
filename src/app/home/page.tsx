@@ -1,11 +1,10 @@
-import Header from '@/components/zerofour/Header';
 import Footer from '@/components/zerofour/Footer';
+
 import Link from 'next/link';
 
 export default function HomePage() {
   return (
     <>
-      <Header />
       <main className="min-h-screen flex flex-col items-start justify-center bg-gradient-to-b from-slate-950 via-slate-900 to-black py-20 text-slate-200">
         <div className="max-w-2xl mx-auto px-6 text-left">
           <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-cyan-400 mb-6">

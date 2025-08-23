@@ -373,12 +373,6 @@ body {
 /* Typography plugin base tweaks */
 .prose {
 }
-.prose a {
-  color: var(--cyan);
-}
-.prose h1,
-.prose h2,
-.prose h3 {
 }
 .prose p {
   color: var(--muted);

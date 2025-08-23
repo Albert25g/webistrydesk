@@ -1,5 +1,5 @@
-
 import './globals.css';
+import Header from '@/components/zerofour/Header';
 
 export const metadata = {
   title: 'WebistryDesk',
@@ -17,6 +17,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#ffffff" />
       </head>
       <body>
+        <Header />
         {children}
       </body>
     </html>
