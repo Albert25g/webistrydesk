@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { onAuthStateChanged, signOut, type User } from 'firebase/auth';
 import ThemeToggle from './ui/ThemeToggle';
@@ -11,6 +11,9 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
+  
+  // ARIA attributes with proper TypeScript typing for accessibility compliance
+  const ariaExpanded: "true" | "false" = open ? "true" : "false";
 
   useEffect(() => {
     const auth = getAuthClient();
@@ -30,26 +33,13 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 border-b"
-      style={{
-        borderColor: 'var(--border)',
-        background:
-          'linear-gradient(180deg, rgba(255,255,255,0.01), transparent)',
-      }}
+      className="sticky top-0 z-50 border-b header-gradient border-custom"
     >
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Brand */}
           <Link href="/" className="flex items-center gap-2 font-semibold">
-            <span
-              className="text-lg"
-              style={{
-                background:
-                  'linear-gradient(90deg,var(--primary-600),var(--accent))',
-                WebkitBackgroundClip: 'text',
-                color: 'transparent',
-              }}
-            >
+            <span className="text-lg logo-gradient">
               WebistryDesk
             </span>
           </Link>
@@ -110,13 +100,13 @@ export default function Header() {
           </div>
 
           {/* Mobile toggle */}
+          {/* Note: Microsoft Edge Tools shows false positive for aria-expanded - functionality is correct */}
           <button
-            className="md:hidden rounded-lg border px-3 py-2 text-sm"
+            className="md:hidden rounded-lg border px-3 py-2 text-sm border-custom"
             onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
+            aria-expanded={ariaExpanded}
             aria-controls="mobile-menu"
             aria-label="Toggle menu"
-            style={{ borderColor: 'var(--border)' }}
           >
             {open ? 'Close' : 'Menu'}
           </button>

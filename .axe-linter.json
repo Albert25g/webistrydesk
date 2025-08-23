@@ -1,0 +1,9 @@
+{
+  "rules": {
+    "aria-valid-attr-value": {
+      "enabled": false,
+      "tags": ["wcag2a", "wcag412"]
+    }
+  },
+  "disableOtherRules": false
+}

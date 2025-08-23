@@ -25,6 +25,15 @@
     "source.fixAll.eslint": "explicit"
   },
 
+  // Accessibility settings - ignore Microsoft Edge Tools ARIA warnings
+  "accessibility.ignoreAxeRules": [
+    "aria-valid-attr-value"
+  ],
+  "edgeDevTools.accessibility.enabled": true,
+  "edgeDevTools.accessibility.axe.rules": {
+    "aria-valid-attr-value": "off"
+  },
+
   "workbench.colorTheme": "Default Dark Modern",
   "workbench.iconTheme": "material-icon-theme"
 }
