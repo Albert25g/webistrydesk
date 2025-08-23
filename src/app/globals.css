@@ -3,7 +3,7 @@
 
 :root {
   /* Simplified light theme for starter page */
-  --bg: #dc2626;
+  --bg: #6bd2f1;
   --elev1: #9fa2a5;
   --elev2: #f5f7f8;
   --brand: #1b3b6f;
@@ -246,9 +246,31 @@ html.dark body {
   padding: 0;
 }
 #header {
-  background: rgba(255, 255, 255, 0.8);
+  /* Metallic white gradient with subtle shine */
+  background: linear-gradient(120deg, #f8fafc 60%, #e5e7eb 100%);
+  background-blend-mode: lighten;
+  box-shadow: 0 2px 12px 0 rgba(180, 180, 200, 0.1),
+    0 1.5px 0 rgba(255, 255, 255, 0.7) inset;
+  border-bottom: 1.5px solid #e5e7eb;
+  border-top: 1px solid #fff;
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.04);
+  /* Subtle metallic shine */
+  position: relative;
+}
+#header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 8px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+  pointer-events: none;
+  border-radius: 8px 8px 0 0;
 }
 #header .inner {
   display: flex;
@@ -278,14 +300,32 @@ html.dark body {
 
 #footer-wrapper {
   padding: 3.5rem 0;
-  background: #84daf0;
+  background: linear-gradient(120deg, #f8fafc 60%, #e5e7eb 100%);
+  background-blend-mode: lighten;
+  box-shadow: 0 -2px 12px 0 rgba(180, 180, 200, 0.10), 0 -1.5px 0 rgba(255,255,255,0.7) inset;
+  border-top: 1.5px solid #e5e7eb;
+  border-bottom: 1px solid #fff;
+  position: relative;
+}
+#footer-wrapper::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.12) 100%);
+  pointer-events: none;
+  border-radius: 0 0 8px 8px;
 }
 #footer {
   margin-bottom: 0;
-  color: #e6e6e6;
+  color: #222;
+  text-shadow: 0 1px 0 #fff, 0 1.5px 0 #e5e7eb;
 }
 #footer h2 {
-  color: #fff;
+  color: #888;
+  text-shadow: 0 1px 0 #fff;
 }
 #copyright {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
