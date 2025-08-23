@@ -1,33 +1,23 @@
+import LeadForm from '@/components/LeadForm';
+
+export const metadata = {
+  title: 'Contact — WebistryDesk',
+  description: 'Get in touch with WebistryDesk.',
+};
+
 export default function ContactPage() {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <div className="max-w-2xl mx-auto px-4 py-12 text-center">
-        <h1 className="text-2xl font-semibold">Contact</h1>
-        <p className="mt-4">
-          General:{' '}
-          <a href="mailto:info@webistrydesk.com">info@webistrydesk.com</a>
-        </p>
-        <p className="mt-2">
-          Support:{' '}
-          <a href="mailto:support@webistrydesk.com">support@webistrydesk.com</a>
-        </p>
-        <p className="mt-2">
-          Andre:{' '}
-          <a href="mailto:andre@webistrydesk.com">andre@webistrydesk.com</a>
-        </p>
-        <p className="mt-2">
-          Albert:{' '}
-          <a href="mailto:albert@webistrydesk.com">albert@webistrydesk.com</a>
-        </p>
-        <p className="mt-2">
-          Phone: <a href="tel:+27797302436">+27 79 730 2436</a>
-        </p>
-        <div className="mt-4">
-          <strong>Head Office:</strong> Nelspruit (Mbombela)
-          <br />
-          <strong>Satellites:</strong> Pretoria, Cape Town
-        </div>
-      </div>
+    <main className="max-w-3xl mx-auto p-6">
+      <h1 className="text-3xl font-semibold mb-4">Contact us</h1>
+      <p className="mb-6 text-slate-600">
+        Have a question or project in mind? Send us a message — we usually reply
+        within one business day.
+      </p>
+      <LeadForm />
+      <p className="mt-4 text-xs text-slate-500">
+        We store your details to respond to your inquiry. No marketing unless
+        you ask us.
+      </p>
     </main>
   );
 }

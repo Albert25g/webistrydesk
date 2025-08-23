@@ -1,30 +1,10 @@
 #!/usr/bin/env bash
-# === WebistryDesk | Executive Landing — prune placeholders, add polished one-pager, verify ===
-# Safe, idempotent. No @apply. Tailwind v4 friendly. Logs to exec_landing.log
-
-exec > >(tee -a exec_landing.log) 2>&1
-echo "=== RUN @ $(date -Is) ==="
-
-BR="exec-landing-$(date +%Y%m%d-%H%M%S)"
-git checkout -b "$BR" || echo "note: branch exists"
-
-APP="src/app"
-CMP="src/components"
-mkdir -p "$APP" "$CMP"
-
-# 0) Remove old placeholder sections if present (services/webdev/ai tools/etc)
-for f in \
-  "$CMP/ServicesSection.tsx" \
-  "$CMP/WebDevSection.tsx" \
-  "$CMP/AIToolsSection.tsx" \
-  "$CMP/ServiceCard.tsx" \
-  "$CMP/CTABanner.tsx" \
-  "$CMP/OldHero.tsx" \
-  "$CMP/OldFooter.tsx" \
-  "$CMP/MarketingGrid.tsx"
-do
-  if git ls-files --error-unmatch "$f" >/dev/null 2>&1; then git rm "$f"; fi
-done
+# Archived: exec_landing.sh
+# This file was archived to avoid accidental execution. The full script
+# remains in the repository history and can be restored with:
+#   git checkout HEAD~1 -- scripts/exec_landing.sh
+echo "This script is archived and intentionally inert. Restore from Git history if needed."
+exit 0
 
 # 1) Design primitives (plain CSS, NO @apply) — insert/update a marker block in globals.css
 GCSS="$APP/globals.css"

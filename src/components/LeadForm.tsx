@@ -1,71 +1,100 @@
 'use client';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 
-export default function LeadForm({
-  initial = {},
-}: {
-  initial?: Record<string, string>;
-}) {
-  const router = useRouter();
-  const [name, setName] = useState(initial.name || '');
-  const [email, setEmail] = useState(initial.email || '');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+export default function LeadForm() {
+  const [ts, setTs] = useState<number>(0);
+  const [busy, setBusy] = useState(false);
+  const [ok, setOk] = useState<null | boolean>(null);
+  const [err, setErr] = useState<string | null>(null);
 
-  async function submit(e: React.FormEvent<HTMLFormElement>) {
+  useEffect(() => {
+    setTs(Date.now());
+  }, []);
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setError(null);
-    if (!email) return setError('Please enter an email');
-    setLoading(true);
+    setBusy(true);
+    setOk(null);
+    setErr(null);
+
+    const form = new FormData(e.currentTarget);
+    const payload = {
+      name: String(form.get('name') || '').trim(),
+      email: String(form.get('email') || '').trim(),
+      message: String(form.get('message') || '').trim(),
+      website: String(form.get('website') || ''), // honeypot (should be empty)
+      ts, // hidden timestamp for anti-bot timing check
+    };
+
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ name, email, source: 'campaign-lda' }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error('Network error');
-      // redirect to start (CTA target)
-      router.push('/start');
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data?.error || `HTTP ${res.status}`);
+      setOk(true);
+      e.currentTarget.reset();
     } catch (err: unknown) {
-      const message =
-        err instanceof Error ? err.message : String(err ?? 'Submission failed');
-      setError(message);
-      setLoading(false);
+      setOk(false);
+      const msg =
+        err instanceof Error
+          ? err.message
+          : String(err ?? 'Something went wrong');
+      setErr(msg);
+    } finally {
+      setBusy(false);
     }
   }
 
   return (
-    <form onSubmit={submit} className="space-y-3">
-      <div>
-        <label className="sr-only">Name</label>
+    <form onSubmit={onSubmit} className="space-y-4 max-w-xl">
+      <div className="grid gap-2">
+        <label className="text-sm">Name</label>
         <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Your name"
-          className="w-full"
+          name="name"
+          required
+          minLength={2}
+          maxLength={100}
+          className="border rounded p-2 w-full"
         />
       </div>
-      <div>
-        <label className="sr-only">Email</label>
+      <div className="grid gap-2">
+        <label className="text-sm">Email</label>
         <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="you@company.com"
           type="email"
-          className="w-full"
+          name="email"
+          required
+          className="border rounded p-2 w-full"
         />
       </div>
-      {error && <div className="text-sm text-red-400">{error}</div>}
-      <div>
-        <button
-          disabled={loading}
-          className="btn btn-primary glow-cta w-full"
-          type="submit"
-        >
-          {loading ? 'Submitting...' : 'Get started'}
-        </button>
+      <div className="grid gap-2">
+        <label className="text-sm">Message</label>
+        <textarea
+          name="message"
+          required
+          minLength={10}
+          maxLength={3000}
+          rows={6}
+          className="border rounded p-2 w-full"
+        />
       </div>
+
+      {/* Honeypot field (hidden visually) */}
+      <div aria-hidden="true" className="hidden">
+        <label>Website</label>
+        <input name="website" tabIndex={-1} autoComplete="off" />
+      </div>
+
+      <button disabled={busy} className="rounded px-4 py-2 border">
+        {busy ? 'Sending…' : 'Send'}
+      </button>
+
+      {ok && (
+        <p className="text-green-600">Thanks — we’ll be in touch shortly.</p>
+      )}
+      {ok === false && <p className="text-red-600">Error: {err}</p>}
     </form>
   );
 }
