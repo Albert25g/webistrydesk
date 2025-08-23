@@ -22,7 +22,7 @@ export default function Page() {
   const toggleMode = () => {
     const newMode = displayMode === 'simple' ? 'premium' : 'simple';
     setDisplayMode(newMode);
-    
+
     // Update URL without refresh
     const url = new URL(window.location.href);
     if (newMode === 'premium') {
@@ -37,7 +37,7 @@ export default function Page() {
     return (
       <>
         <Header />
-        
+
         {/* Mode Toggle */}
         <div className="fixed top-4 right-4 z-50">
           <button
@@ -47,7 +47,7 @@ export default function Page() {
             ← Simple View
           </button>
         </div>
-        
+
         {/* Premium Revenue Engine Design */}
         <main className="relative overflow-hidden">
           {/* Enhanced Background Elements */}
@@ -67,7 +67,8 @@ export default function Page() {
 
               {/* Main Headline - Mobile Optimized */}
               <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-tight mb-6 sm:mb-8 text-shadow">
-                We Don't Just Build Websites.<br/>
+                We Don't Just Build Websites.
+                <br />
                 <span className="bg-gradient-to-r from-brand via-brand-cyan to-brand-gold bg-clip-text text-transparent">
                   We Build Revenue Engines.
                 </span>
@@ -75,23 +76,39 @@ export default function Page() {
 
               {/* Subheadline - Mobile Responsive */}
               <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-8 sm:mb-12 px-4 sm:px-0">
-                Every pixel, every line of code, every user journey is engineered to turn your visitors into customers. 
-                <strong className="text-brand block sm:inline"> We're not web designers. We're growth partners.</strong>
+                Every pixel, every line of code, every user journey is
+                engineered to turn your visitors into customers.
+                <strong className="text-brand block sm:inline">
+                  {' '}
+                  We're not web designers. We're growth partners.
+                </strong>
               </p>
 
               {/* Social Proof Stats - Mobile Responsive */}
               <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto mb-8 sm:mb-12">
                 <div className="text-center bg-card-depth rounded-xl p-3 sm:p-4 shadow-floating">
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand mb-1 sm:mb-2">240%</div>
-                  <div className="text-xs sm:text-sm text-gray-600">Avg. Revenue Increase</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand mb-1 sm:mb-2">
+                    240%
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-600">
+                    Avg. Revenue Increase
+                  </div>
                 </div>
                 <div className="text-center bg-card-depth rounded-xl p-3 sm:p-4 shadow-floating">
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand mb-1 sm:mb-2">47+</div>
-                  <div className="text-xs sm:text-sm text-gray-600">Businesses Transformed</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand mb-1 sm:mb-2">
+                    47+
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-600">
+                    Businesses Transformed
+                  </div>
                 </div>
                 <div className="text-center bg-card-depth rounded-xl p-3 sm:p-4 shadow-floating">
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand mb-1 sm:mb-2">R2.1M</div>
-                  <div className="text-xs sm:text-sm text-gray-600">Generated for Clients</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand mb-1 sm:mb-2">
+                    R2.1M
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-600">
+                    Generated for Clients
+                  </div>
                 </div>
               </div>
 
@@ -113,7 +130,7 @@ export default function Page() {
             </div>
           </div>
         </main>
-        
+
         <Footer />
       </>
     );
@@ -123,7 +140,7 @@ export default function Page() {
   return (
     <>
       <Header />
-      
+
       {/* Mode Toggle */}
       <div className="fixed top-4 right-4 z-50">
         <button
@@ -133,7 +150,7 @@ export default function Page() {
           Premium View →
         </button>
       </div>
-      
+
       <main className="min-h-screen flex items-center justify-center bg-white">
         <div className="max-w-6xl mx-auto px-6 py-24 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">
@@ -159,25 +176,33 @@ export default function Page() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="font-semibold text-gray-900">Website Development</td>
+                    <td className="font-semibold text-gray-900">
+                      Website Development
+                    </td>
                     <td>R 5,000</td>
                     <td>1-2 weeks</td>
                     <td>Design, Development, SEO</td>
                   </tr>
                   <tr>
-                    <td className="font-semibold text-gray-900">E-commerce Store</td>
+                    <td className="font-semibold text-gray-900">
+                      E-commerce Store
+                    </td>
                     <td>R 8,000</td>
                     <td>2-3 weeks</td>
                     <td>Store Setup, Payment Gateway</td>
                   </tr>
                   <tr>
-                    <td className="font-semibold text-gray-900">Web Application</td>
+                    <td className="font-semibold text-gray-900">
+                      Web Application
+                    </td>
                     <td>R 12,000</td>
                     <td>3-4 weeks</td>
                     <td>Custom Features, Database</td>
                   </tr>
                   <tr>
-                    <td className="font-semibold text-gray-900">Brand Identity</td>
+                    <td className="font-semibold text-gray-900">
+                      Brand Identity
+                    </td>
                     <td>R 2,500</td>
                     <td>1 week</td>
                     <td>Logo, Brand Guidelines</td>
@@ -206,11 +231,16 @@ export default function Page() {
           {/* Premium Preview Hint */}
           <div className="mt-16 pt-8 border-t border-gray-200">
             <p className="text-sm text-gray-600 mb-4">
-              💡 Looking for premium conversion-focused design? All the business automation APIs and revenue optimization features are ready to deploy.
+              💡 Looking for premium conversion-focused design? All the business
+              automation APIs and revenue optimization features are ready to
+              deploy.
             </p>
             <div className="flex flex-col sm:flex-row gap-2 justify-center items-center text-sm">
               <span className="text-gray-500">Features available:</span>
-              <span className="text-blue-600 font-medium">Lead Generation • Email Sequences • CRM Integration • Analytics • Conversion Optimization</span>
+              <span className="text-blue-600 font-medium">
+                Lead Generation • Email Sequences • CRM Integration • Analytics
+                • Conversion Optimization
+              </span>
             </div>
           </div>
         </div>
