@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
+  <defs>
+    <linearGradient id="gradEmail" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#FF6A70"/>
+      <stop offset="100%" stop-color="#F05C8A"/>
+    </linearGradient>
+    <linearGradient id="gradWeb" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#55A7FF"/>
+      <stop offset="100%" stop-color="#46D0FF"/>
+    </linearGradient>
+    <linearGradient id="gradAI" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#5E6671"/>
+      <stop offset="100%" stop-color="#31373E"/>
+    </linearGradient>
+    <linearGradient id="gradSettings" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#21C1A4"/>
+      <stop offset="100%" stop-color="#55E3C2"/>
+    </linearGradient>
+    <linearGradient id="gradPay" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#F4D581"/>
+      <stop offset="100%" stop-color="#C89B3F"/>
+    </linearGradient>
+
+    <filter id="nodeShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Charcoal spine + branches (outer stroke) -->
+  <g id="spine" stroke="#1B1F26" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Large C spine: approximated with path -->
+    <path d="M224 736
+             C224 512 384 256 736 256
+             " />
+    <!-- horizontal inner bar y=512 x=352..768 -->
+    <path d="M352 512 H768" />
+
+    <!-- branches (orthogonal with 32px corner radii approximated with path commands) -->
+    <!-- Top-left branch to (352,192) -->
+    <path d="M352 320 V256 H352" />
+
+    <!-- Top-right branch from (704,416) to (832,288) -->
+    <path d="M704 416 H768 V288 H832" />
+
+    <!-- Mid-right branch from (768,512) to (832,512) -->
+    <path d="M768 512 H832" />
+
+    <!-- Bottom-right branch from (640,640) to (832,736) -->
+    <path d="M640 640 H768 V736 H832" />
+
+    <!-- Bottom-center branch from C bottom to (512,896) -->
+    <path d="M368 832 C440 832 480 896 512 896" />
+  </g>
+
+  <!-- Gold filament (centered) -->
+  <g id="filament" stroke="#D7B567" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M224 736
+             C224 512 384 256 736 256
+             " />
+    <path d="M352 512 H768" />
+    <path d="M352 320 V256 H352" />
+    <path d="M704 416 H768 V288 H832" />
+    <path d="M768 512 H832" />
+    <path d="M640 640 H768 V736 H832" />
+    <path d="M368 832 C440 832 480 896 512 896" />
+  </g>
+
+  <!-- Nodes (ring, gradient fill, glyphs) -->
+  <!-- 1) Top-left: center (352,192), gradient Email -->
+  <g transform="translate(352,192)" filter="url(#nodeShadow)">
+    <circle r="84" fill="#0000" stroke="#262B33" stroke-width="10" />
+    <circle r="74" fill="url(#gradEmail)" />
+    <!-- Envelope glyph (simplified) -->
+    <path d="M-28 -6 L0 14 L28 -6 M-36 -18 H36 V18 H-36 Z" fill="none" stroke="#F8FAFC" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 2) Top-right: center (832,288), gradient Web -->
+  <g transform="translate(832,288)" filter="url(#nodeShadow)">
+    <circle r="84" fill="#0000" stroke="#262B33" stroke-width="10" />
+    <circle r="74" fill="url(#gradWeb)" />
+    <!-- Browser + globe simplified -->
+    <rect x="-36" y="-26" width="72" height="44" rx="6" fill="none" stroke="#F8FAFC" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="0" cy="0" r="14" fill="none" stroke="#F8FAFC" stroke-width="6" />
+    <path d="M-14 0 H14 M0 -14 V14" stroke="#F8FAFC" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- 3) Mid-right: center (832,512), gradient AI -->
+  <g transform="translate(832,512)" filter="url(#nodeShadow)">
+    <circle r="84" fill="#0000" stroke="#262B33" stroke-width="10" />
+    <circle r="74" fill="url(#gradAI)" />
+    <!-- Stylized brain (simplified) -->
+    <path d="M-24 0 C-24 -18 -8 -28 0 -24 C8 -28 24 -18 24 0 C24 18 8 28 0 24 C-8 28 -24 18 -24 0 Z" fill="none" stroke="#F8FAFC" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 4) Settings: center (832,736), gradient Settings -->
+  <g transform="translate(832,736)" filter="url(#nodeShadow)">
+    <circle r="84" fill="#0000" stroke="#262B33" stroke-width="10" />
+    <circle r="74" fill="url(#gradSettings)" />
+    <!-- Cog (6 teeth) simplified -->
+    <g stroke="#F8FAFC" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <circle r="14" />
+      <path d="M0 -30 L6 -22 M0 30 L-6 22 M30 0 L22 6 M-30 0 L-22 -6" />
+    </g>
+  </g>
+
+  <!-- 5) Payments: center (512,896), gradient Pay -->
+  <g transform="translate(512,896)" filter="url(#nodeShadow)">
+    <circle r="84" fill="#0000" stroke="#262B33" stroke-width="10" />
+    <circle r="74" fill="url(#gradPay)" />
+    <!-- Card with chip line -->
+    <rect x="-36" y="-18" width="72" height="36" rx="6" fill="none" stroke="#F8FAFC" stroke-width="6" />
+    <rect x="-28" y="-8" width="12" height="8" rx="2" fill="#F8FAFC" />
+  </g>
+
+</svg>

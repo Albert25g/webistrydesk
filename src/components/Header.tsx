@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { onAuthStateChanged, signOut, type User } from 'firebase/auth';
+import ThemeToggle from './ui/ThemeToggle';
 import { getAuthClient } from '../lib/firebase';
 
 export default function Header() {
@@ -86,6 +87,7 @@ export default function Header() {
 
           {/* Desktop auth (right) */}
           <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             {user ? (
               <>
                 <Link href="/dashboard" className="btn btn-ghost">
