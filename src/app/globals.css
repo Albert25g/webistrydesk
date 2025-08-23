@@ -3,9 +3,9 @@
 
 :root {
   /* Simplified light theme for starter page */
-  --bg: #ffffff;
-  --elev1: #f8fafc;
-  --elev2: #f1f5f9;
+  --bg: #dc2626;
+  --elev1: #9fa2a5;
+  --elev2: #f5f7f8;
   --brand: #1b3b6f;
   --brand-dark: #162f57;
   --cyan: #0ea5a3;
@@ -134,7 +134,7 @@ body {
 /* @wd-primitives start */
 /* Palette (subtle, business-first) */
 :root {
-  --wd-bg: #0b0f14;
+  --wd-bg: #dc2626;
   --wd-panel: rgba(255, 255, 255, 0.04);
   --wd-panel-border: rgba(255, 255, 255, 0.08);
   --wd-text: #e5e7eb;
@@ -246,7 +246,8 @@ html.dark body {
   padding: 0;
 }
 #header {
-  background: var(--elev1);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(15, 23, 42, 0.04);
 }
 #header .inner {
@@ -277,7 +278,7 @@ html.dark body {
 
 #footer-wrapper {
   padding: 3.5rem 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  background: #84daf0;
 }
 #footer {
   margin-bottom: 0;
@@ -291,4 +292,153 @@ html.dark body {
   text-align: center;
   margin-top: 2rem;
   padding: 2rem 0 2.5rem 0;
+}
+
+/* Table Styles */
+.table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.table thead {
+  background: #f9fafb;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f3f4f6;
+  color: #6b7280;
+}
+
+.table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Pricing Table */
+.pricing-table {
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+}
+
+.pricing-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.pricing-table th {
+  padding: 20px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  border: none;
+  text-align: center;
+}
+
+.pricing-table td {
+  padding: 16px 20px;
+  text-align: center;
+  border-right: 1px solid #f3f4f6;
+}
+
+.pricing-table td:last-child {
+  border-right: none;
+}
+
+/* Border Utilities */
+.border-decorative {
+  border: 2px solid;
+  border-image: linear-gradient(45deg, #667eea, #764ba2) 1;
+  border-radius: 8px;
+}
+
+.border-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.border-card:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.border-highlight {
+  border: 2px solid #10b981;
+  border-radius: 8px;
+  background: #f0fdfa;
+}
+
+.border-accent {
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  position: relative;
+}
+
+.border-accent::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--gold), var(--gold-dark));
+  border-radius: 10px;
+  z-index: -1;
+}
+
+/* Service Cards with Enhanced Borders */
+.service-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  background: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transition: height 0.3s ease;
+}
+
+.service-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+  transform: translateY(-4px);
+}
+
+.service-card:hover::before {
+  height: 6px;
 }
