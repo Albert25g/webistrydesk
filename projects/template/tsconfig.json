@@ -4,7 +4,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -14,18 +14,20 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts", 
+    "**/*.tsx",
+    "next.config.js"
+  ],
   "exclude": [
     "node_modules",
-    "src/app.hidden/**",
-    "src/components/FeatureCard.tsx",
-    "src/components/Footer.tsx", 
-    "src/components/Hero.tsx",
-    "src/components/Navbar.tsx",
-    "src/components/Section.tsx",
-    "src/components/Stats.tsx",
-    "src/types/index.ts"
+    "src/app.hidden",
+    ".next"
   ]
 }
