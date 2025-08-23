@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Header from '@/components/zerofour/Header';
 import Footer from '@/components/zerofour/Footer';
 import Link from 'next/link';
 
@@ -36,8 +35,6 @@ export default function Page() {
   if (displayMode === 'premium') {
     return (
       <>
-        <Header />
-
         {/* Mode Toggle */}
         <div className="fixed top-4 right-4 z-50">
           <button
@@ -139,8 +136,6 @@ export default function Page() {
   // Simple Clean Design (Default)
   return (
     <>
-      <Header />
-
       {/* Mode Toggle */}
       <div className="fixed top-4 right-4 z-50">
         <button

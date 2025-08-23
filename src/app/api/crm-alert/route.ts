@@ -230,7 +230,7 @@ ACTION REQUIRED: Call within 5 minutes! They're ready to buy.`,
   }),
 };
 
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: 587,
   secure: false,
