@@ -1,321 +1,319 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-import Footer from '@/components/zerofour/Footer';
 import Link from 'next/link';
+import Image from 'next/image';
 
-// Define display modes
-type DisplayMode = 'simple' | 'premium' | 'template';
-
-export default function Page() {
-  const [displayMode, setDisplayMode] = useState<DisplayMode>('template');
-
-  useEffect(() => {
-    // Check URL parameters for mode
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('premium') === 'true') {
-      setDisplayMode('premium');
-    } else if (urlParams.get('simple') === 'true') {
-      setDisplayMode('simple');
-    } else {
-      setDisplayMode('template');
-    }
-  }, []);
-
-  const toggleMode = () => {
-    let newMode: DisplayMode;
-    if (displayMode === 'template') {
-      newMode = 'premium';
-    } else if (displayMode === 'premium') {
-      newMode = 'simple';
-    } else {
-      newMode = 'template';
-    }
-    setDisplayMode(newMode);
-
-    // Update URL without refresh
-    const url = new URL(window.location.href);
-    url.searchParams.delete('premium');
-    url.searchParams.delete('simple');
-    if (newMode === 'premium') {
-      url.searchParams.set('premium', 'true');
-    } else if (newMode === 'simple') {
-      url.searchParams.set('simple', 'true');
-    }
-    window.history.replaceState({}, '', url.toString());
-  };
-
-  if (displayMode === 'template') {
-    return (
-      <div className="template-style">
-        {/* Mode Toggle */}
-        <div className="fixed top-4 right-4 z-50">
-          <button
-            onClick={toggleMode}
-            className="template-btn text-xs px-3 py-2"
-          >
-            Premium View →
-          </button>
-        </div>
-
-        {/* Template Hero Section */}
-        <div className="template-hero">
-          <div className="text-center max-w-4xl mx-auto px-6">
-            {/* Trust Badge */}
-            <div className="inline-flex items-center px-4 py-2 rounded-full text-sm template-card mb-8">
-              <div className="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse"></div>
-              Trusted by 47+ South African businesses since 2023
-            </div>
-
-            {/* Main Headline */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
-              We Don&apos;t Just Build Websites.
-              <br />
-              <span style={{ color: 'var(--webistry-secondary)' }}>
-                We Build Revenue Engines.
-              </span>
-            </h1>
-
-            {/* Subheadline */}
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">
-              Every pixel, every line of code, every user journey is engineered
-              to turn your visitors into customers.
-              <br />
-              <strong style={{ color: 'var(--webistry-gold)' }}>
-                We&apos;re not web designers. We&apos;re growth partners.
-              </strong>
-            </p>
-
-            {/* Social Proof Stats */}
-            <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto mb-12">
-              <div className="template-card text-center">
-                <div
-                  className="text-3xl md:text-4xl font-bold mb-2"
-                  style={{ color: 'var(--webistry-secondary)' }}
-                >
-                  240%
-                </div>
-                <div className="text-sm text-gray-300">
-                  Avg. Revenue Increase
-                </div>
-              </div>
-              <div className="template-card text-center">
-                <div
-                  className="text-3xl md:text-4xl font-bold mb-2"
-                  style={{ color: 'var(--webistry-gold)' }}
-                >
-                  47+
-                </div>
-                <div className="text-sm text-gray-300">
-                  Businesses Transformed
-                </div>
-              </div>
-              <div className="template-card text-center">
-                <div
-                  className="text-3xl md:text-4xl font-bold mb-2"
-                  style={{ color: 'var(--webistry-secondary)' }}
-                >
-                  R2.1M
-                </div>
-                <div className="text-sm text-gray-300">
-                  Generated for Clients
-                </div>
-              </div>
-            </div>
-
-            {/* Primary CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="template-btn primary text-lg px-8 py-4"
-              >
-                Get Your Free Revenue Audit →
-              </Link>
-              <Link href="/services" className="template-btn text-lg px-8 py-4">
-                See Our Services
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Services Section with Template Style */}
-        <div className="py-20 px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Revenue-Focused Services
-              </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Every service is designed with one goal: increase your business
-                revenue
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  title: 'Revenue Engine Websites',
-                  price: 'From R15,000',
-                  features: [
-                    'Conversion Psychology',
-                    'Lead Generation',
-                    'Analytics Setup',
-                    'Mobile Optimized',
-                  ],
-                  color: 'var(--webistry-primary)',
-                },
-                {
-                  title: 'E-commerce Solutions',
-                  price: 'From R25,000',
-                  features: [
-                    'Cart Recovery',
-                    'Payment Integration',
-                    'Inventory Management',
-                    'Sales Analytics',
-                  ],
-                  color: 'var(--webistry-gold)',
-                },
-                {
-                  title: 'Brand Authority',
-                  price: 'From R8,500',
-                  features: [
-                    'Brand Identity',
-                    'Market Positioning',
-                    'Brand Guidelines',
-                    'Marketing Materials',
-                  ],
-                  color: 'var(--webistry-secondary)',
-                },
-              ].map((service, index) => (
-                <div key={index} className="template-card">
-                  <h3
-                    className="text-xl font-bold mb-4"
-                    style={{ color: service.color }}
-                  >
-                    {service.title}
-                  </h3>
-                  <div className="text-2xl font-bold text-white mb-4">
-                    {service.price}
-                  </div>
-                  <ul className="space-y-2 mb-6">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="text-gray-300 flex items-center">
-                        <span
-                          className="w-2 h-2 rounded-full mr-3"
-                          style={{ backgroundColor: service.color }}
-                        ></span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/contact"
-                    className="template-btn w-full text-center block"
-                  >
-                    Get Started
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Footer */}
-        <Footer />
-      </div>
-    );
-  }
-
-  if (displayMode === 'premium') {
-    return (
-      <>
-        <div className="fixed top-4 right-4 z-50">
-          <button
-            onClick={toggleMode}
-            className="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 shadow-lg"
-          >
-            Simple View →
-          </button>
-        </div>
-
-        <main className="relative overflow-hidden">
-          <div className="bg-depth min-h-screen">
-            <div className="absolute inset-0 bg-premiumGrid opacity-40"></div>
-          </div>
-
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-32">
-            <div className="text-center mb-12 sm:mb-16">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-tight mb-6 sm:mb-8">
-                We Don&apos;t Just Build Websites.
-                <br />
-                <span className="bg-gradient-to-r from-brand via-brand-cyan to-brand-gold bg-clip-text text-transparent">
-                  We Build Revenue Engines.
-                </span>
-              </h1>
-
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8 px-4 sm:px-0">
-                <Link
-                  href="/contact"
-                  className="btn btn-large bg-gradient-to-r from-brand to-brand-dark text-white shadow-floating hover:shadow-floating-hover"
-                >
-                  Get Your Free Revenue Audit →
-                </Link>
-                <Link
-                  href="/services"
-                  className="btn btn-large gradient-border bg-white text-brand hover:bg-gradient-to-r hover:from-brand hover:to-brand-dark hover:text-white"
-                >
-                  See Our Services
-                </Link>
-              </div>
-            </div>
-          </div>
-        </main>
-
-        <Footer />
-      </>
-    );
-  }
-
-  // Simple Clean Design
+export default function Home() {
   return (
     <>
-      <div className="fixed top-4 right-4 z-50">
-        <button
-          onClick={toggleMode}
-          className="bg-blue-600 text-white rounded-lg px-3 py-2 text-sm font-medium hover:bg-blue-700 shadow-lg"
-        >
-          Template View →
-        </button>
+      {/* Intro */}
+      <div id="intro">
+        <h1 className="webistry-brand">
+          WebistryDesk
+          <br />
+          Digital Solutions
+        </h1>
+        <p>
+          We don't just build websites – we create{' '}
+          <span className="revenue-highlight">revenue engines</span> that
+          convert visitors into customers. Our psychology-driven design and
+          proven growth tactics have generated{' '}
+          <strong>R50M+ for South African businesses</strong>.
+        </p>
+        <ul className="actions">
+          <li>
+            <Link
+              href="#featured"
+              className="button icon solid solo fa-arrow-down scrolly"
+            >
+              Continue
+            </Link>
+          </li>
+        </ul>
       </div>
 
-      <main className="min-h-screen flex items-center justify-center bg-white">
-        <div className="max-w-6xl mx-auto px-6 py-24 text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">
-            WebistryDesk — Build your web presence
-          </h1>
-          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            We design and develop fast, accessible websites and web apps for
-            small businesses. Friendly service in Nelspruit (Mbombela) and
-            across South Africa.
+      {/* Featured Post */}
+      <article id="featured" className="post featured">
+        <header className="major">
+          <span className="date">Revenue Growth</span>
+          <h2>
+            <Link href="/services">
+              Transform Your Business
+              <br />
+              Into a Revenue Machine
+            </Link>
+          </h2>
+          <p>
+            Every website we build is designed with one goal:{' '}
+            <strong>increase your revenue by 240% or more.</strong>
+            We use conversion psychology, A/B testing, and proven growth tactics
+            to turn your website into a customer-generating machine that works
+            24/7.
           </p>
+        </header>
+        <Link href="/services" className="image main">
+          <Image
+            src="/images/pic01.jpg"
+            alt="Revenue-focused web development"
+            width={1200}
+            height={600}
+            priority
+          />
+        </Link>
+        <ul className="actions special">
+          <li>
+            <Link href="/services" className="button large">
+              View Our Services
+            </Link>
+          </li>
+        </ul>
+      </article>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg"
-            >
-              Get Started →
-            </Link>
-            <Link
-              href="/services"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-colors font-semibold text-lg"
-            >
-              View Services
-            </Link>
+      {/* Posts */}
+      <section className="posts">
+        <article>
+          <header>
+            <span className="date">Web Development</span>
+            <h2>
+              <Link href="/services">
+                Revenue Engine
+                <br />
+                Websites
+              </Link>
+            </h2>
+          </header>
+          <Link href="/services" className="image fit">
+            <Image
+              src="/images/pic02.jpg"
+              alt="Revenue-optimized websites"
+              width={600}
+              height={400}
+            />
+          </Link>
+          <p>
+            <strong>From R15,000</strong> - Conversion-optimized websites
+            engineered with psychology, data, and proven growth tactics. Every
+            element is designed to turn visitors into customers.
+          </p>
+          <div className="trust-signal">
+            <strong>Average Result:</strong> 340% ROI increase in 6 months
           </div>
-        </div>
-      </main>
-      <Footer />
+          <ul className="actions special">
+            <li>
+              <Link href="/services" className="button">
+                Learn More
+              </Link>
+            </li>
+          </ul>
+        </article>
+
+        <article>
+          <header>
+            <span className="date">E-commerce</span>
+            <h2>
+              <Link href="/services">
+                Sales Machine
+                <br />
+                Online Stores
+              </Link>
+            </h2>
+          </header>
+          <Link href="/services" className="image fit">
+            <Image
+              src="/images/pic03.jpg"
+              alt="High-converting e-commerce stores"
+              width={600}
+              height={400}
+            />
+          </Link>
+          <p>
+            <strong>From R25,000</strong> - E-commerce stores that actually
+            sell. We optimize every step of the buying journey with conversion
+            psychology and checkout optimization.
+          </p>
+          <div className="trust-signal">
+            <strong>Average Result:</strong> 285% increase in online sales
+          </div>
+          <ul className="actions special">
+            <li>
+              <Link href="/services" className="button">
+                Learn More
+              </Link>
+            </li>
+          </ul>
+        </article>
+
+        <article>
+          <header>
+            <span className="date">Digital Marketing</span>
+            <h2>
+              <Link href="/services">
+                Growth-Focused
+                <br />
+                Marketing
+              </Link>
+            </h2>
+          </header>
+          <Link href="/services" className="image fit">
+            <Image
+              src="/images/pic04.jpg"
+              alt="Data-driven digital marketing"
+              width={600}
+              height={400}
+            />
+          </Link>
+          <p>
+            <strong>From R12,000/month</strong> - Data-driven digital marketing
+            that delivers measurable ROI. We focus on channels that actually
+            generate revenue, not just vanity metrics.
+          </p>
+          <div className="trust-signal">
+            <strong>Average Result:</strong> 180% revenue growth in 12 months
+          </div>
+          <ul className="actions special">
+            <li>
+              <Link href="/services" className="button">
+                Learn More
+              </Link>
+            </li>
+          </ul>
+        </article>
+
+        <article>
+          <header>
+            <span className="date">Branding</span>
+            <h2>
+              <Link href="/services">
+                Authority Brand
+                <br />
+                Development
+              </Link>
+            </h2>
+          </header>
+          <Link href="/services" className="image fit">
+            <Image
+              src="/images/pic05.jpg"
+              alt="Premium brand development"
+              width={600}
+              height={400}
+            />
+          </Link>
+          <p>
+            <strong>From R8,500</strong> - Premium brand identities that command
+            higher prices and create customer loyalty. Position yourself as the
+            obvious choice in your market.
+          </p>
+          <div className="trust-signal">
+            <strong>Average Result:</strong> 65% price increase after rebranding
+          </div>
+          <ul className="actions special">
+            <li>
+              <Link href="/services" className="button">
+                Learn More
+              </Link>
+            </li>
+          </ul>
+        </article>
+
+        <article>
+          <header>
+            <span className="date">Success Stories</span>
+            <h2>
+              <Link href="/portfolio">
+                Real Results
+                <br />
+                R50M+ Generated
+              </Link>
+            </h2>
+          </header>
+          <Link href="/portfolio" className="image fit">
+            <Image
+              src="/images/pic06.jpg"
+              alt="Client success stories and results"
+              width={600}
+              height={400}
+            />
+          </Link>
+          <p>
+            See how we've transformed over 150 South African businesses with
+            measurable results. Real case studies with actual revenue growth
+            numbers.
+          </p>
+          <div className="trust-signal">
+            <strong>Portfolio Highlights:</strong> 240% average conversion
+            improvement
+          </div>
+          <ul className="actions special">
+            <li>
+              <Link href="/portfolio" className="button">
+                View Portfolio
+              </Link>
+            </li>
+          </ul>
+        </article>
+
+        <article>
+          <header>
+            <span className="date">Free Audit</span>
+            <h2>
+              <Link href="/contact">
+                Get Your Revenue
+                <br />
+                Audit Today
+              </Link>
+            </h2>
+          </header>
+          <Link href="/contact" className="image fit">
+            <Image
+              src="/images/pic07.jpg"
+              alt="Free revenue audit consultation"
+              width={600}
+              height={400}
+            />
+          </Link>
+          <p>
+            Book your free revenue audit and discover exactly how we can
+            increase your conversions by 240% or more. No pitch, no pressure –
+            just actionable insights.
+          </p>
+          <div className="trust-signal">
+            <strong>Response Time:</strong> Within 4 hours guaranteed
+          </div>
+          <ul className="actions special">
+            <li>
+              <Link href="/contact" className="button primary">
+                Book Free Audit
+              </Link>
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      {/* CTA Section */}
+      <div
+        className="trust-signal"
+        style={{
+          background: '#1e1e1e',
+          padding: '3rem 2rem',
+          borderRadius: '8px',
+          textAlign: 'center',
+          margin: '3rem 0',
+          border: '2px solid #ff6b6b',
+        }}
+      >
+        <h2 style={{ color: '#fff', marginBottom: '1rem' }}>
+          Ready to Transform Your Business?
+        </h2>
+        <p style={{ color: '#ccc', marginBottom: '2rem', fontSize: '1.1rem' }}>
+          Join over 150 successful South African businesses who've increased
+          their revenue by 240% or more with WebistryDesk.
+        </p>
+        <Link href="/contact" className="button primary large">
+          Book Your Free Revenue Audit
+        </Link>
+        <p style={{ color: '#999', fontSize: '0.9rem', marginTop: '1rem' }}>
+          ✅ No pitch, no pressure • ✅ Response within 4 hours • ✅ Actionable
+          insights you can use immediately
+        </p>
+      </div>
     </>
   );
 }

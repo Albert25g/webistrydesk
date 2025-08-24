@@ -1,207 +1,88 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useMemo, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { onAuthStateChanged, signOut, type User } from 'firebase/auth';
-import ThemeToggle from './ui/ThemeToggle';
-import { getAuthClient } from '../lib/firebase';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
-  const [user, setUser] = useState<User | null>(null);
-  const router = useRouter();
-  
-  // ARIA attributes with proper TypeScript typing for accessibility compliance
-  const ariaExpanded: "true" | "false" = open ? "true" : "false";
+  const pathname = usePathname();
 
-  useEffect(() => {
-    const auth = getAuthClient();
-    if (!auth) return; // no Firebase configured; keep user null
-    const unsub = onAuthStateChanged(auth, (u) => setUser(u));
-    return () => unsub();
-  }, []);
-
-  async function handleSignOut() {
-    const auth = getAuthClient();
-    if (!auth) return;
-    try {
-      await signOut(auth);
-      router.push('/login');
-    } catch {}
-  }
+  const isActive = (path: string) => {
+    if (path === '/' && pathname === '/') return true;
+    if (path !== '/' && pathname?.startsWith(path)) return true;
+    return false;
+  };
 
   return (
-    <header
-      className="sticky top-0 z-50 border-b header-gradient border-custom"
-    >
-      <div className="mx-auto max-w-7xl px-4">
-        <div className="flex h-16 items-center justify-between">
-          {/* Brand */}
-          <Link href="/" className="flex items-center gap-2 font-semibold">
-            <span className="text-lg logo-gradient">
-              WebistryDesk
-            </span>
-          </Link>
+    <>
+      {/* Header */}
+      <header id="header">
+        <Link href="/" className="logo">
+          WebistryDesk
+        </Link>
+      </header>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6 text-sm">
-            <Link href="/home" className="hover:text-cyan-300">
-              Home
-            </Link>
-            <Link href="/#services" className="hover:text-cyan-300">
-              Services
-            </Link>
-            <Link
-              href="/services/web-design"
-              className="text-gray-400 hover:text-cyan-300"
+      {/* Nav */}
+      <nav id="nav">
+        <ul className="links">
+          <li className={isActive('/') ? 'active' : ''}>
+            <Link href="/">Home</Link>
+          </li>
+          <li className={isActive('/services') ? 'active' : ''}>
+            <Link href="/services">Services</Link>
+          </li>
+          <li className={isActive('/portfolio') ? 'active' : ''}>
+            <Link href="/portfolio">Portfolio</Link>
+          </li>
+          <li className={isActive('/about') ? 'active' : ''}>
+            <Link href="/about">About</Link>
+          </li>
+          <li className={isActive('/contact') ? 'active' : ''}>
+            <Link href="/contact">Contact</Link>
+          </li>
+        </ul>
+        <ul className="icons">
+          <li>
+            <a
+              href="https://linkedin.com/company/webistrydesk"
+              className="icon brands fa-linkedin"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              • Web Design
-            </Link>
-            <Link
-              href="/services/development"
-              className="text-gray-400 hover:text-cyan-300"
+              <span className="label">LinkedIn</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://facebook.com/webistrydesk"
+              className="icon brands fa-facebook-f"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              • Development
-            </Link>
-            <Link
-              href="/services/ai-tools"
-              className="text-gray-400 hover:text-cyan-300"
+              <span className="label">Facebook</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://instagram.com/webistrydesk"
+              className="icon brands fa-instagram"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              • AI Tools
-            </Link>
-            <Link href="/contact" className="hover:text-cyan-300">
-              Contact
-            </Link>
-          </nav>
-
-          {/* Desktop auth (right) */}
-          <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
-            {user ? (
-              <>
-                <Link href="/dashboard" className="btn btn-ghost">
-                  Dashboard
-                </Link>
-                <button onClick={handleSignOut} className="btn btn-primary">
-                  Sign out
-                </button>
-              </>
-            ) : (
-              <>
-                <Link href="/login" className="btn btn-ghost">
-                  Sign in
-                </Link>
-                <Link href="/register" className="btn btn-primary">
-                  Create account
-                </Link>
-              </>
-            )}
-          </div>
-
-          {/* Mobile toggle */}
-          {/* Note: Microsoft Edge Tools shows false positive for aria-expanded - functionality is correct */}
-          <button
-            className="md:hidden rounded-lg border px-3 py-2 text-sm border-custom"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={ariaExpanded}
-            aria-controls="mobile-menu"
-            aria-label="Toggle menu"
-          >
-            {open ? 'Close' : 'Menu'}
-          </button>
-        </div>
-
-        {/* Mobile menu */}
-        <div
-          id="mobile-menu"
-          className={`${open ? 'block' : 'hidden'} md:hidden pb-4`}
-        >
-          <div className="flex flex-col gap-2 text-sm">
-            <Link
-              href="/home"
-              onClick={() => setOpen(false)}
-              className="py-2 hover:text-cyan-300"
+              <span className="label">Instagram</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/webistrydesk"
+              className="icon brands fa-github"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Home
-            </Link>
-            <Link
-              href="/#services"
-              onClick={() => setOpen(false)}
-              className="py-2 hover:text-cyan-300"
-            >
-              Services
-            </Link>
-            <Link
-              href="/services/web-design"
-              onClick={() => setOpen(false)}
-              className="py-2 pl-4 text-gray-400 hover:text-cyan-300"
-            >
-              • Web Design
-            </Link>
-            <Link
-              href="/services/development"
-              onClick={() => setOpen(false)}
-              className="py-2 pl-4 text-gray-400 hover:text-cyan-300"
-            >
-              • Development
-            </Link>
-            <Link
-              href="/services/ai-tools"
-              onClick={() => setOpen(false)}
-              className="py-2 pl-4 text-gray-400 hover:text-cyan-300"
-            >
-              • AI Tools
-            </Link>
-            <Link
-              href="/contact"
-              onClick={() => setOpen(false)}
-              className="py-2 hover:text-cyan-300"
-            >
-              Contact
-            </Link>
-
-            <div className="pt-2 border-t border-white/10 mt-2" />
-            {user ? (
-              <>
-                <Link
-                  href="/dashboard"
-                  onClick={() => setOpen(false)}
-                  className="py-2 hover:text-cyan-300"
-                >
-                  Dashboard
-                </Link>
-                <button
-                  onClick={() => {
-                    setOpen(false);
-                    handleSignOut();
-                  }}
-                  className="btn btn-primary w-full text-left"
-                >
-                  Sign out
-                </button>
-              </>
-            ) : (
-              <>
-                <Link
-                  href="/login"
-                  onClick={() => setOpen(false)}
-                  className="py-2 hover:text-cyan-300"
-                >
-                  Sign in
-                </Link>
-                <Link
-                  href="/register"
-                  onClick={() => setOpen(false)}
-                  className="btn btn-primary w-full text-center"
-                >
-                  Create account
-                </Link>
-              </>
-            )}
-          </div>
-        </div>
-      </div>
-    </header>
+              <span className="label">GitHub</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </>
   );
 }
