@@ -265,7 +265,7 @@ const EMAIL_TEMPLATES = {
 };
 
 // Create transporter
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: 587,
   secure: false,

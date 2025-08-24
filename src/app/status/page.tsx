@@ -543,8 +543,8 @@ export default function SystemStatus() {
 
           <div className="text-center mt-8">
             <p className="text-lg opacity-90">
-              "From a simple contact form to a revenue-generating machine - all
-              while maintaining security and quality!"
+              &ldquo;From a simple contact form to a revenue-generating machine - all
+              while maintaining security and quality!&rdquo;
             </p>
           </div>
         </div>

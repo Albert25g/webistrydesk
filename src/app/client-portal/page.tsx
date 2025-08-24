@@ -524,7 +524,7 @@ export default function ClientPortal() {
                       <span className="text-xs text-gray-500">2 hours ago</span>
                     </div>
                     <p className="text-gray-700">
-                      Hi Sarah! Great news - we've successfully integrated your
+                      Hi Sarah! Great news - we&apos;ve successfully integrated your
                       product catalog. The preview link is ready for you to
                       review. Let me know what you think!
                     </p>

@@ -1,6 +1,20 @@
 import { NextRequest } from 'next/server';
 import nodemailer from 'nodemailer';
 
+interface Lead {
+  name: string;
+  email: string;
+  score: number;
+  source: string;
+  temperature: 'cold' | 'warm' | 'hot' | 'burning';
+  phone?: string;
+  company?: string;
+  message?: string;
+  lastAction?: string;
+  timeOnSite?: string;
+  pagesVisited?: string[];
+}
+
 // Lead scoring system
 const LEAD_SCORING = {
   actions: {
@@ -26,7 +40,7 @@ const LEAD_SCORING = {
 
 // CRM Integration Templates
 const CRM_TEMPLATES = {
-  new_lead: (lead: any) => ({
+  new_lead: (lead: Lead) => ({
     subject: `🔥 NEW LEAD: ${lead.name} (${lead.score} points)`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -167,7 +181,7 @@ Recommended action: ${
     }`,
   }),
 
-  hot_lead_alert: (lead: any) => ({
+  hot_lead_alert: (lead: Lead) => ({
     subject: `🚨 URGENT: ${lead.name} is a HOT lead - Call NOW!`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #fef2f2; border: 2px solid #fecaca;">

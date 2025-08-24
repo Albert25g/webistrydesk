@@ -24,7 +24,7 @@ export default function ServicesPage() {
               </h1>
               
               <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-                We don't just build websites. We engineer revenue machines that turn visitors into customers and grow your business predictably.
+                We don&apos;t just build websites. We engineer revenue machines that turn visitors into customers and grow your business predictably.
               </p>
             </div>
           </div>

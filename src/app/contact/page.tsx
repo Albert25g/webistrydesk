@@ -29,7 +29,7 @@ export default function ContactPage() {
               </h1>
               
               <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-                Book your free revenue audit and discover exactly where you're losing money - plus the specific steps to fix it.
+                Book your free revenue audit and discover exactly where you&apos;re losing money - plus the specific steps to fix it.
               </p>
             </div>
             
@@ -52,7 +52,7 @@ export default function ContactPage() {
                 
                 {/* What You'll Get */}
                 <div className="bg-gradient-to-br from-brand/5 to-brand-cyan/5 rounded-3xl p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">What You'll Discover</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">What You&apos;ll Discover</h3>
                   <div className="space-y-4">
                     {[
                       {
@@ -118,7 +118,7 @@ export default function ContactPage() {
                 <div className="bg-gradient-to-r from-brand to-brand-dark rounded-3xl p-8 text-white">
                   <h3 className="text-xl font-bold mb-4">Prefer to Talk?</h3>
                   <p className="text-blue-100 mb-6">
-                    Skip the form and call us directly. We're here to help.
+                    Skip the form and call us directly. We&apos;re here to help.
                   </p>
                   <div className="space-y-3">
                     <a
