@@ -64,7 +64,7 @@ export default function Page() {
 
               {/* Main Headline - Mobile Optimized */}
               <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-tight mb-6 sm:mb-8 text-shadow">
-                We Don't Just Build Websites.
+                We Don&apos;t Just Build Websites.
                 <br />
                 <span className="bg-gradient-to-r from-brand via-brand-cyan to-brand-gold bg-clip-text text-transparent">
                   We Build Revenue Engines.
@@ -77,7 +77,7 @@ export default function Page() {
                 engineered to turn your visitors into customers.
                 <strong className="text-brand block sm:inline">
                   {' '}
-                  We're not web designers. We're growth partners.
+                  We&apos;re not web designers. We&apos;re growth partners.
                 </strong>
               </p>
 

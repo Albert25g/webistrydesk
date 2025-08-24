@@ -21,7 +21,7 @@ export function Analytics() {
 }
 
 // Global analytics function
-export function trackEvent(event: string, data: any = {}) {
+export function trackEvent(event: string, data: Record<string, unknown> = {}) {
   // Add session ID and user agent
   const sessionId = getSessionId();
   const eventData = {
@@ -59,7 +59,7 @@ export function trackEvent(event: string, data: any = {}) {
 export function trackConversion(
   conversionType: string,
   value?: number,
-  data: any = {}
+  data: Record<string, unknown> = {}
 ) {
   trackEvent('conversion', {
     conversion_type: conversionType,
@@ -110,6 +110,6 @@ function getSessionId(): string {
 // Declare gtag function for TypeScript
 declare global {
   interface Window {
-    gtag: any;
+    gtag: (command: string, action: string, parameters?: Record<string, unknown>) => void;
   }
 }

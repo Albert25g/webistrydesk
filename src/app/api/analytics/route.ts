@@ -31,7 +31,7 @@ export async function POST(req: Request) {
     ) {
       // Send alert to your email for hot leads
       if (process.env.ZOHO_SMTP_HOST) {
-        const transporter = nodemailer.createTransporter({
+        const transporter = nodemailer.createTransport({
           host: process.env.ZOHO_SMTP_HOST,
           port: Number(process.env.ZOHO_SMTP_PORT || 465),
           secure: true,

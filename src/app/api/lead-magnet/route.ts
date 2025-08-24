@@ -3,13 +3,10 @@ import nodemailer from 'nodemailer';
 
 // Lead magnet delivery endpoint - converts visitors to leads
 export async function POST(req: Request) {
-  const now = Date.now();
-
   try {
     const body = await req.json();
     const { name, email, lead_magnet_type } = body;
     const firstName = name?.split(' ')[0] || name;
-    const type = lead_magnet_type;
 
     // Basic validation
     if (!name || !email || !lead_magnet_type) {
@@ -124,7 +121,7 @@ export async function POST(req: Request) {
     }
 
     // Create transporter for email delivery
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       host: process.env.ZOHO_SMTP_HOST,
       port: Number(process.env.ZOHO_SMTP_PORT || 465),
       secure: String(process.env.ZOHO_SMTP_SECURE || 'true') === 'true',

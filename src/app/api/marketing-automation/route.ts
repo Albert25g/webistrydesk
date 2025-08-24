@@ -1,5 +1,13 @@
 import { NextRequest } from 'next/server';
 
+interface EmailData {
+  name?: string;
+  email?: string;
+  formType?: string;
+  visitedPages?: string[];
+  leadMagnet?: string;
+}
+
 // Marketing automation workflows
 const WORKFLOWS = {
   abandoned_lead_magnet: {
@@ -48,7 +56,7 @@ const WORKFLOWS = {
 };
 
 const EMAIL_TEMPLATES = {
-  abandoned_form_reminder: (data: any) => ({
+  abandoned_form_reminder: (data: EmailData) => ({
     subject: '⏰ Your free toolkit is waiting!',
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -96,7 +104,7 @@ const EMAIL_TEMPLATES = {
     text: `Hi! You started downloading our toolkit but didn't finish. Get your free conversion optimization guide that's helped clients increase conversions by 240%: https://webistrydesk.com`,
   }),
 
-  high_engagement_followup: (data: any) => ({
+  high_engagement_followup: (_data: EmailData) => ({
     subject: "🎯 I noticed you're seriously researching solutions...",
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -150,7 +158,7 @@ const EMAIL_TEMPLATES = {
     text: `Hi! I noticed you've been exploring our website thoroughly. Want to skip the research phase and get a custom roadmap for YOUR business? Book a free 30-minute strategy call: https://webistrydesk.com/contact`,
   }),
 
-  pricing_followup: (data: any) => ({
+  pricing_followup: (_data: EmailData) => ({
     subject: '💰 Questions about pricing? Let me help...',
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
