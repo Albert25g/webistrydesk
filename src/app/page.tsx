@@ -4,6 +4,35 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <>
+      {/* Hero Image Section */}
+      <section style={{
+        textAlign: 'center',
+        padding: '2rem 1rem',
+        marginBottom: '2rem'
+      }}>
+        <img 
+          src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8d2ViJTIwZGV2ZWxvcG1lbnR8ZW58MHx8MHx8fDA%3D" 
+          alt="Modern web development workspace"
+          style={{
+            width: '100%',
+            maxWidth: '600px',
+            height: '300px',
+            objectFit: 'cover',
+            borderRadius: '8px',
+            marginBottom: '1.5rem'
+          }}
+        />
+        <p style={{
+          fontSize: '1.1rem',
+          color: '#666',
+          maxWidth: '500px',
+          margin: '0 auto',
+          lineHeight: '1.6'
+        }}>
+          Professional web development and digital solutions for growing businesses.
+        </p>
+      </section>
+
       {/* Intro */}
       <div id="intro">
         <h1 className="webistry-brand">
