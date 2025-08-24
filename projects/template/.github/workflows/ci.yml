@@ -37,7 +37,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy
-        run: npm run deploy
-        env:
-          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+      # Template deploy step disabled by default to avoid secret warnings in editors.
+      # Replace with your real deploy logic and secrets when using this template.
+      - name: Deploy (template placeholder - disabled)
+        if: ${{ false }}
+        run: echo "Skip deploy in template workflow. Configure secrets and enable when ready."
