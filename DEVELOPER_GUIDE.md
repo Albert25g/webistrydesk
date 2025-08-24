@@ -88,7 +88,7 @@ Notes:
 
 - This repository includes a GitHub Actions workflow that runs on pull requests targeting `main`.
 - The CI job runs build, lint, and a small check that `.env.example` contains the required public keys.
-- Pull requests must pass CI before merging to `main` (configure branch protection in GitHub settings to require CI checks).
+- **Branch Protection**: Currently not enabled. See `BRANCH_PROTECTION_SETUP.md` for configuration instructions to require CI checks before merging.
 
 Why: CI is the authoritative gate that prevents broken or misconfigured code from reaching `main`.
 
