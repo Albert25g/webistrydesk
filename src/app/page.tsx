@@ -11,39 +11,22 @@ export default function Home() {
           <div
             style={{
               display: 'flex',
+              flexDirection: 'column',
               alignItems: 'center',
               gap: '1.5rem',
               marginBottom: '1rem',
+              flexWrap: 'wrap',
             }}
           >
-            <Image
-              src="/Logo-webistrydesk.png"
-              alt="WebistryDesk Logo"
-              width={180}
-              height={180}
-              style={{
-                objectFit: 'contain',
-                marginRight: '2rem',
-                flexShrink: 0,
-                boxShadow: '0 6px 32px 0 rgba(0,0,0,0.10)',
-                borderRadius: '18px',
-                background: '#fff',
-                border: '2px solid #eaeaea',
-                padding: '0.75rem',
-                maxWidth: '180px',
-                maxHeight: '180px',
-                minWidth: '120px',
-                minHeight: '120px',
-                display: 'block',
-              }}
-              priority
-            />
             <h2
               style={{
                 margin: 0,
-                fontSize: '2.1rem',
                 lineHeight: 1.15,
                 fontWeight: 700,
+                wordBreak: 'break-word',
+                maxWidth: '90vw',
+                fontSize: 'clamp(1.2rem, 5vw, 2.1rem)',
+                textAlign: 'center',
               }}
             >
               <Link
@@ -55,6 +38,29 @@ export default function Home() {
                 Into a Revenue Machine
               </Link>
             </h2>
+            <Image
+              src="/Logo-webistrydesk.png"
+              alt="WebistryDesk Logo"
+              width={180}
+              height={180}
+              style={{
+                objectFit: 'contain',
+                marginTop: '1rem',
+                boxShadow: '0 6px 32px 0 rgba(0,0,0,0.10)',
+                borderRadius: '18px',
+                background: '#fff',
+                border: '2px solid #eaeaea',
+                padding: '0.75rem',
+                width: '25vw',
+                height: '25vw',
+                minWidth: '80px',
+                minHeight: '80px',
+                maxWidth: '180px',
+                maxHeight: '180px',
+                display: 'block',
+              }}
+              priority
+            />
           </div>
           <p>
             Every website we build is designed with one goal:{' '}

@@ -28,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={merriweather.variable}>
       <head>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         {/* Preload critical assets */}
         <link rel="preload" href="/css/fontawesome-all.min.css" as="style" />
         <link rel="preload" href="/images/bg.jpg" as="image" />

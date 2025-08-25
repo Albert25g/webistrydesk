@@ -5209,3 +5209,32 @@ form textarea:focus {
     font-size: 1.8rem;
   }
 }
+
+/* Custom overrides to remove white space from homepage */
+/* Surgical approach - target only the intro spacing issue */
+#intro {
+  min-height: auto !important;
+  height: auto !important;
+  padding: 1rem 2rem !important;
+  margin: 0 !important;
+  display: block !important;
+}
+
+/* Override preload states for intro */
+body.is-preload #intro,
+body.is-loading #intro {
+  min-height: auto !important;
+  height: auto !important;
+  padding: 1rem 2rem !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+
+/* Remove top spacing from main containers */
+#wrapper {
+  padding-top: 0 !important;
+}
+
+#main {
+  padding-top: 0 !important;
+}
