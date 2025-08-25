@@ -8,13 +8,54 @@ export default function Home() {
       <article id="featured" className="post featured">
         <header className="major">
           <span className="date">Revenue Growth</span>
-          <h2>
-            <Link href="/services">
-              Transform Your Business
-              <br />
-              Into a Revenue Machine
-            </Link>
-          </h2>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1.5rem',
+              marginBottom: '1rem',
+            }}
+          >
+            <Image
+              src="/Logo-webistrydesk.png"
+              alt="WebistryDesk Logo"
+              width={180}
+              height={180}
+              style={{
+                objectFit: 'contain',
+                marginRight: '2rem',
+                flexShrink: 0,
+                boxShadow: '0 6px 32px 0 rgba(0,0,0,0.10)',
+                borderRadius: '18px',
+                background: '#fff',
+                border: '2px solid #eaeaea',
+                padding: '0.75rem',
+                maxWidth: '180px',
+                maxHeight: '180px',
+                minWidth: '120px',
+                minHeight: '120px',
+                display: 'block',
+              }}
+              priority
+            />
+            <h2
+              style={{
+                margin: 0,
+                fontSize: '2.1rem',
+                lineHeight: 1.15,
+                fontWeight: 700,
+              }}
+            >
+              <Link
+                href="/services"
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
+                Transform Your Business
+                <br />
+                Into a Revenue Machine
+              </Link>
+            </h2>
+          </div>
           <p>
             Every website we build is designed with one goal:{' '}
             <strong>increase your revenue by 240% or more.</strong>
