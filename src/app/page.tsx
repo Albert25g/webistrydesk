@@ -4,62 +4,7 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <>
-      {/* Hero Image Section */}
-      <section style={{
-        textAlign: 'center',
-        padding: '2rem 1rem',
-        marginBottom: '2rem'
-      }}>
-        <img 
-          src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8d2ViJTIwZGV2ZWxvcG1lbnR8ZW58MHx8MHx8fDA%3D" 
-          alt="Modern web development workspace"
-          style={{
-            width: '100%',
-            maxWidth: '600px',
-            height: '300px',
-            objectFit: 'cover',
-            borderRadius: '8px',
-            marginBottom: '1.5rem'
-          }}
-        />
-        <p style={{
-          fontSize: '1.1rem',
-          color: '#666',
-          maxWidth: '500px',
-          margin: '0 auto',
-          lineHeight: '1.6'
-        }}>
-          Professional web development and digital solutions for growing businesses.
-        </p>
-      </section>
-
-      {/* Intro */}
-      <div id="intro">
-        <h1 className="webistry-brand">
-          WebistryDesk
-          <br />
-          Digital Solutions
-        </h1>
-        <p>
-          We don't just build websites – we create{' '}
-          <span className="revenue-highlight">revenue engines</span> that
-          convert visitors into customers. Our psychology-driven design and
-          proven growth tactics have generated{' '}
-          <strong>R50M+ for South African businesses</strong>.
-        </p>
-        <ul className="actions">
-          <li>
-            <Link
-              href="#featured"
-              className="button icon solid solo fa-arrow-down scrolly"
-            >
-              Continue
-            </Link>
-          </li>
-        </ul>
-      </div>
-
-      {/* Featured Post */}
+      {/* Featured Post (now at the top) */}
       <article id="featured" className="post featured">
         <header className="major">
           <span className="date">Revenue Growth</span>
@@ -80,11 +25,16 @@ export default function Home() {
         </header>
         <Link href="/services" className="image main">
           <Image
-            src="/images/pic01.jpg"
+            src="https://quintagroup.com/services/service-images/web-design.jpg"
             alt="Revenue-focused web development"
             width={1200}
             height={600}
             priority
+            style={{
+              width: '100%',
+              height: 'auto',
+              objectFit: 'cover',
+            }}
           />
         </Link>
         <ul className="actions special">
@@ -124,6 +74,45 @@ export default function Home() {
           </p>
           <div className="trust-signal">
             <strong>Average Result:</strong> 340% ROI increase in 6 months
+          </div>
+          <ul className="actions special">
+            <li>
+              <Link href="/services" className="button">
+                Learn More
+              </Link>
+            </li>
+          </ul>
+        </article>
+
+        {/* Business Consulting Service */}
+        <article>
+          <header>
+            <span className="date">Business Consulting</span>
+            <h2>
+              <Link href="/services">
+                Business
+                <br />
+                Consulting
+              </Link>
+            </h2>
+          </header>
+          <Link href="/services" className="image fit">
+            <Image
+              src="/images/pic02.jpg"
+              alt="Business consulting service"
+              width={600}
+              height={400}
+            />
+          </Link>
+          <p>
+            <strong>From R20,000</strong> – Expert business consulting to
+            optimize your operations, strategy, and growth. Our consultants help
+            you unlock new revenue streams and streamline your business for
+            maximum efficiency and profit.
+          </p>
+          <div className="trust-signal">
+            <strong>Average Result:</strong> 200% improvement in operational
+            efficiency
           </div>
           <ul className="actions special">
             <li>
