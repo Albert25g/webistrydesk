@@ -64,20 +64,7 @@ export default function Home() {
             24/7.
           </p>
         </header>
-        <Link href="/services" className="image main">
-          <Image
-            src="https://quintagroup.com/services/service-images/web-design.jpg"
-            alt="Revenue-focused web development"
-            width={1200}
-            height={600}
-            priority
-            style={{
-              width: '100%',
-              height: 'auto',
-              objectFit: 'cover',
-            }}
-          />
-        </Link>
+        {/* Image removed as requested */}
         <ul className="actions special">
           <li>
             <Link href="/services" className="button large">
