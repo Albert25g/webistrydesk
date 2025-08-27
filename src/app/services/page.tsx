@@ -9,9 +9,9 @@ export default function Services() {
         <header className="major">
           <h1>Our Services</h1>
           <p>
-            Comprehensive web development and digital marketing solutions
-            designed to generate revenue and drive business growth. Every
-            service is optimized for maximum ROI and measurable results.
+            Professional web development and digital marketing services
+            designed to help your business grow online. We focus on clean,
+            modern solutions that work well for you and your customers.
           </p>
         </header>
       </section>
@@ -34,10 +34,9 @@ export default function Services() {
             />
           </a>
           <p>
-            Transform your digital presence with cutting-edge web development
-            solutions. We create responsive, fast, and user-friendly websites
-            using the latest technologies like React, Next.js, and modern CSS
-            frameworks.
+            Professional web development using modern technologies like React,
+            Next.js, and responsive design. We create websites that look good,
+            load fast, and work well on all devices.
           </p>
           <ul className="actions special">
             <li>
@@ -63,9 +62,9 @@ export default function Services() {
             />
           </a>
           <p>
-            High-converting online stores from R25,000. Our e-commerce solutions
-            have generated over R50M in client revenue with advanced analytics
-            and optimization.
+            E-commerce stores from R25,000. Online shopping solutions with
+            secure payment processing, inventory management, and mobile-friendly
+            design.
           </p>
           <ul className="actions special">
             <li>
@@ -91,9 +90,9 @@ export default function Services() {
             />
           </a>
           <p>
-            Strategic SEO and digital marketing from R12,000/month. Our
-            campaigns deliver 400%+ ROI with data-driven strategies and
-            continuous optimization.
+            SEO and digital marketing from R12,000/month. We help improve your
+            online visibility and reach more potential customers through search
+            engines and social media.
           </p>
           <ul className="actions special">
             <li>
@@ -119,9 +118,9 @@ export default function Services() {
             />
           </a>
           <p>
-            Complete brand identity packages from R8,500. Professional logos,
-            brand guidelines, and marketing materials that establish market
-            authority.
+            Brand identity packages from R8,500. Professional logo design,
+            brand guidelines, and marketing materials to help establish your
+            professional business presence.
           </p>
           <ul className="actions special">
             <li>
@@ -175,14 +174,14 @@ export default function Services() {
             />
           </a>
           <p>
-            Get a comprehensive analysis of your current website's performance,
-            SEO, and conversion opportunities. Receive actionable insights to
-            boost your revenue.
+            Get a free review of your current website. We'll look at your site's
+            design, performance, and user experience, then provide honest
+            feedback and suggestions for improvement.
           </p>
           <ul className="actions special">
             <li>
               <a href="/contact" className="button primary">
-                Get Free Audit
+                Get Free Review
               </a>
             </li>
           </ul>
@@ -192,40 +191,40 @@ export default function Services() {
       {/* Service Details */}
       <section className="post">
         <header className="major">
-          <h2>Why Choose WebistryDesk?</h2>
+          <h2>Why Work With Us?</h2>
         </header>
 
         <div className="row">
           <div className="col-6 col-12-small">
-            <h3>Proven Results</h3>
+            <h3>Professional Approach</h3>
             <ul>
-              <li>R50M+ in client revenue generated</li>
-              <li>94% average revenue increase within 12 months</li>
-              <li>340% average conversion rate improvement</li>
-              <li>400%+ ROI on marketing campaigns</li>
+              <li>Clean, modern web development</li>
+              <li>Responsive design for all devices</li>
+              <li>Focus on user experience</li>
+              <li>Honest, transparent communication</li>
             </ul>
           </div>
           <div className="col-6 col-12-small">
-            <h3>Complete Solutions</h3>
+            <h3>Complete Service</h3>
             <ul>
-              <li>End-to-end project management</li>
-              <li>Ongoing support and optimization</li>
-              <li>Advanced analytics and reporting</li>
-              <li>South African market expertise</li>
+              <li>Project management from start to finish</li>
+              <li>Ongoing support and maintenance</li>
+              <li>Training on how to use your website</li>
+              <li>Local South African business</li>
             </ul>
           </div>
         </div>
 
         <p>
-          Every project includes comprehensive project management, ongoing
-          support, and performance optimization. We don't just build websites –
-          we build revenue-generating digital assets that grow your business.
+          We handle every aspect of your project with clear communication and
+          professional service. Our goal is to build websites that work well
+          for your business and provide ongoing support when you need it.
         </p>
 
         <ul className="actions special">
           <li>
             <Link href="/contact" className="button primary large">
-              Start Your Project Today
+              Get Started Today
             </Link>
           </li>
           <li>

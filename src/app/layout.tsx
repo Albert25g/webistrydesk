@@ -1,23 +1,38 @@
 import type { Metadata } from 'next';
-import { Merriweather } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import './globals.css';
-import Script from 'next/script';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { CartProvider } from './cart/CartContext';
 
-const merriweather = Merriweather({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['300', '700'],
-  style: ['normal', 'italic'],
-  variable: '--font-merriweather',
+  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
-  title: 'WebistryDesk - R50M+ Revenue Generation | Premium Web Development',
+  title: 'WebistryDesk - Professional Web Development & Digital Services',
   description:
-    "Transform your business with WebistryDesk's proven revenue-generating web solutions. From R15k+ websites to R50M+ e-commerce platforms. 94% client revenue increase guaranteed.",
+    'Professional web development, e-commerce solutions, and digital marketing services. We build clean, modern websites that work well for your business.',
   keywords:
-    'web development, e-commerce, digital marketing, SEO, branding, revenue generation, South Africa',
+    'web development, e-commerce, digital marketing, SEO, branding, South Africa',
+  icons: {
+    icon: [
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+      {
+        url: '/images/tribal-circuit-logo.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+    ],
+    apple: {
+      url: '/images/tribal-circuit-logo.png',
+      sizes: '180x180',
+      type: 'image/png',
+    },
+    shortcut: '/favicon.png',
+  },
 };
 
 export default function RootLayout({
@@ -26,37 +41,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={merriweather.variable}>
+    <html lang="en" className={inter.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        {/* Preload critical assets */}
-        <link rel="preload" href="/css/fontawesome-all.min.css" as="style" />
-        <link rel="preload" href="/images/bg.jpg" as="image" />
-
-        {/* NoScript CSS for template compatibility */}
-        <noscript>
-          <link rel="stylesheet" href="/css/noscript.css" />
-        </noscript>
       </head>
-      <body className="is-preload">
-        <div id="wrapper" className="fade-in">
-          <div className="bg fixed"></div>
-
-          <Header />
-
-          <div id="main">{children}</div>
-
-          <Footer />
-        </div>
-
-        {/* Load template JavaScript files */}
-        <Script src="/js/jquery.min.js" strategy="beforeInteractive" />
-        <Script src="/js/jquery.scrollex.min.js" strategy="afterInteractive" />
-        <Script src="/js/jquery.scrolly.min.js" strategy="afterInteractive" />
-        <Script src="/js/browser.min.js" strategy="afterInteractive" />
-        <Script src="/js/breakpoints.min.js" strategy="afterInteractive" />
-        <Script src="/js/util.js" strategy="afterInteractive" />
-        <Script src="/js/main.js" strategy="afterInteractive" />
+      <body className="font-sans">
+        <CartProvider>
+          <div className="min-h-screen flex flex-col">
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+        </CartProvider>
       </body>
     </html>
   );

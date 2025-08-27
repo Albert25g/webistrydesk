@@ -145,10 +145,10 @@ export default function Contact() {
           <p>
             <strong>
               <a
-                href="mailto:hello@webistrydesk.com"
+                href="mailto:support@webistrydesk.com"
                 style={{ color: '#ff6b6b' }}
               >
-                hello@webistrydesk.com
+                support@webistrydesk.com
               </a>
             </strong>
           </p>
@@ -397,7 +397,7 @@ export default function Contact() {
           >
             <h3 style={{ color: '#f44336' }}>❌ Something Went Wrong</h3>
             <p>
-              Please try again or email us directly at hello@webistrydesk.com
+              Please try again or email us directly at support@webistrydesk.com
             </p>
           </div>
         )}
