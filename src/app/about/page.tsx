@@ -19,9 +19,9 @@ export default function About() {
           Digital Solutions
         </h1>
         <p>
-          We don't just build websites. We create revenue engines that transform
-          South African businesses through psychology-driven design, conversion
-          optimization, and data-backed strategies.
+          We don&apos;t just build websites. We create revenue engines that
+          transform South African businesses through psychology-driven design,
+          conversion optimization, and data-backed strategies.
         </p>
       </header>
       <div className="image main">
@@ -37,9 +37,9 @@ export default function About() {
       {/* Mission Statement */}
       <h2>Our Mission: Turn Every Visitor Into Revenue</h2>
       <p>
-        Too many South African businesses have beautiful websites that don't
-        generate sales. Pretty designs with no strategy. Traffic with no
-        conversions. Visitors with no action.
+        Too many South African businesses have beautiful websites that
+        don&apos;t generate sales. Pretty designs with no strategy. Traffic with
+        no conversions. Visitors with no action.
       </p>
 
       <p>
@@ -78,7 +78,8 @@ export default function About() {
           <p style={{ color: '#ccc' }}>
             We understand how people make buying decisions online. Every element
             is positioned to guide visitors toward taking action - whether
-            that's making a purchase, booking a call, or requesting a quote.
+            that&apos;s making a purchase, booking a call, or requesting a
+            quote.
           </p>
         </div>
 
@@ -120,8 +121,8 @@ export default function About() {
       {/* Results */}
       <h2>Results That Speak for Themselves</h2>
       <p>
-        We've helped over 150 South African businesses transform their online
-        presence and achieve remarkable growth:
+        We&apos;ve helped over 150 South African businesses transform their
+        online presence and achieve remarkable growth:
       </p>
 
       <div

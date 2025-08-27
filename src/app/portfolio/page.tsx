@@ -22,9 +22,9 @@ export default function Portfolio() {
           </h2>
           <p>
             Every project in our portfolio shares one thing:{' '}
-            <strong>measurable revenue growth.</strong> These aren't just
-            beautiful websites - they're revenue-generating machines that have
-            transformed South African businesses.
+            <strong>measurable revenue growth.</strong> These aren&apos;t just
+            beautiful websites - they&apos;re revenue-generating machines that
+            have transformed South African businesses.
           </p>
         </header>
         <div className="image main">
@@ -311,8 +311,8 @@ export default function Portfolio() {
           </div>
           <h3>Challenge:</h3>
           <p>
-            Competing on price instead of value. Prospects didn't understand
-            their premium services.
+            Competing on price instead of value. Prospects didn&apos;t
+            understand their premium services.
           </p>
 
           <h3>Solution:</h3>
@@ -530,9 +530,9 @@ export default function Portfolio() {
                 marginBottom: '1.5em',
               }}
             >
-              "WebistryDesk transformed our business completely. Our website now
-              generates more leads in a week than it used to in 6 months. The
-              ROI has been absolutely incredible."
+              " &quot;WebistryDesk transformed our business completely. Our
+              website now generates more leads in a week than it used to in 6
+              months. The ROI has been absolutely incredible.&quot;"
             </p>
             <p style={{ color: '#ff6b6b', fontWeight: 'bold' }}>
               Sarah Mitchell
@@ -558,9 +558,9 @@ export default function Portfolio() {
                 marginBottom: '1.5em',
               }}
             >
-              "Finally, a web company that actually understands business. They
-              didn't just give us a pretty website - they gave us a
-              revenue-generating machine that works 24/7."
+              " &quot;Finally, a web company that actually understands business.
+              They didn&apos;t just give us a pretty website - they gave us a
+              revenue-generating machine that works 24/7.&quot;"
             </p>
             <p style={{ color: '#ff6b6b', fontWeight: 'bold' }}>
               David Rodriguez
@@ -586,9 +586,9 @@ export default function Portfolio() {
                 marginBottom: '1.5em',
               }}
             >
-              "The results speak for themselves. 285% increase in online sales
-              within 4 months. Every rand we invested with WebistryDesk has
-              returned ten-fold."
+              " &quot;The results speak for themselves. 285% increase in online
+              sales within 4 months. Every rand we invested with WebistryDesk
+              has returned ten-fold.&quot;"
             </p>
             <p style={{ color: '#ff6b6b', fontWeight: 'bold' }}>
               Michael Thompson
@@ -615,8 +615,8 @@ export default function Portfolio() {
           Ready to Join Our Success Stories?
         </h2>
         <p style={{ color: '#ccc', marginBottom: '2em' }}>
-          Let's create a custom strategy to increase your revenue by 240% or
-          more. Book your free revenue audit and discover exactly what we can
+          Let&apos;s create a custom strategy to increase your revenue by 240%
+          or more. Book your free revenue audit and discover exactly what we can
           achieve together.
         </p>
         <Link href="/contact" className="button primary large">

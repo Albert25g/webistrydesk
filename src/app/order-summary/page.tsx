@@ -4,10 +4,17 @@ import React, { useState } from 'react';
 import { useCart } from '../cart/CartContext';
 import Link from 'next/link';
 
+interface OrderItem {
+  id: string;
+  name: string;
+  price: number;
+  quantity: number;
+}
+
 export default function OrderSummary() {
   const { items } = useCart();
   const orderTotal = items.reduce(
-    (sum: number, item: any) => sum + item.price * item.quantity,
+    (sum: number, item: OrderItem) => sum + item.price * item.quantity,
     0
   );
   const [loading, setLoading] = useState(false);
@@ -28,8 +35,10 @@ export default function OrderSummary() {
       } else {
         setError(data.error || 'Failed to create Stripe session.');
       }
-    } catch (err: any) {
-      setError(err.message || 'An error occurred.');
+    } catch (err: unknown) {
+      const errorMessage =
+        err instanceof Error ? err.message : 'An error occurred.';
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -47,7 +56,7 @@ export default function OrderSummary() {
       ) : (
         <>
           <div className="space-y-4 mb-8">
-            {items.map((item: any) => (
+            {items.map((item: OrderItem) => (
               <div
                 key={item.id}
                 className="border rounded-lg p-4 flex items-center justify-between"

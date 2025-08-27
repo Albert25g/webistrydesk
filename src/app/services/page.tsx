@@ -9,9 +9,9 @@ export default function Services() {
         <header className="major">
           <h1>Our Services</h1>
           <p>
-            Professional web development and digital marketing services
-            designed to help your business grow online. We focus on clean,
-            modern solutions that work well for you and your customers.
+            Professional web development and digital marketing services designed
+            to help your business grow online. We focus on clean, modern
+            solutions that work well for you and your customers.
           </p>
         </header>
       </section>
@@ -23,16 +23,19 @@ export default function Services() {
           <header>
             <span className="date">Professional Development</span>
             <h2>
-              <a href="#">Web Development</a>
+              <span>Web Development</span>
             </h2>
           </header>
-          <a href="#" className="image fit">
-            <img
-              src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8d2ViJTIwZGV2ZWxvcG1lbnR8ZW58MHx8MHx8fDA%3D"
+          <div className="image fit">
+            <Image
+              src="/images/web-development.jpg"
               alt="Modern web development workspace with code and technology"
+              width={500}
+              height={300}
               className="w-full h-64 object-cover"
+              priority={true}
             />
-          </a>
+          </div>
           <p>
             Professional web development using modern technologies like React,
             Next.js, and responsive design. We create websites that look good,
@@ -51,16 +54,18 @@ export default function Services() {
           <header>
             <span className="date">Revenue Generation</span>
             <h2>
-              <a href="#">E-commerce Platforms</a>
+              <span>E-commerce Platforms</span>
             </h2>
           </header>
-          <a href="#" className="image fit">
-            <img
-              src="https://media.istockphoto.com/id/2160966987/photo/smartphone-with-application-online-shopping-platform-and-shopping-cart-icon-during-sitting-at.webp?a=1&b=1&s=612x612&w=0&k=20&c=ebd86X7bFFRXBfARVU8e52Gc_nPdtjyiqCOg4RQaahM="
+          <div className="image fit">
+            <Image
+              src="/images/ecommerce.jpg"
               alt="E-commerce shopping platform with smartphone and online shopping cart"
+              width={500}
+              height={300}
               className="w-full h-64 object-cover"
             />
-          </a>
+          </div>
           <p>
             E-commerce stores from R25,000. Online shopping solutions with
             secure payment processing, inventory management, and mobile-friendly
@@ -79,16 +84,18 @@ export default function Services() {
           <header>
             <span className="date">Growth Strategy</span>
             <h2>
-              <a href="#">Digital Marketing</a>
+              <span>Digital Marketing</span>
             </h2>
           </header>
-          <a href="#" className="image fit">
-            <img
-              src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGRpZ2l0YWwlMjBtYXJrZXRpbmd8ZW58MHx8MHx8fDA%3D"
+          <div className="image fit">
+            <Image
+              src="/images/seo-marketing.jpg"
               alt="Digital marketing analytics and strategy dashboard"
+              width={500}
+              height={300}
               className="w-full h-64 object-cover"
             />
-          </a>
+          </div>
           <p>
             SEO and digital marketing from R12,000/month. We help improve your
             online visibility and reach more potential customers through search
@@ -107,19 +114,21 @@ export default function Services() {
           <header>
             <span className="date">Brand Identity</span>
             <h2>
-              <a href="#">Brand Identity & Design</a>
+              <span>Brand Identity & Design</span>
             </h2>
           </header>
-          <a href="#" className="image fit">
-            <img
-              src="https://plus.unsplash.com/premium_photo-1752231227830-20cee47c4663?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fGJyYW5kJTIwaWRlbnRpdHklMjBhbmQlMjBkZXNpZ258ZW58MHx8MHx8fDA%3D"
+          <div className="image fit">
+            <Image
+              src="/images/branding.jpg"
               alt="Brand identity design elements and creative materials"
+              width={500}
+              height={300}
               className="w-full h-64 object-cover"
             />
-          </a>
+          </div>
           <p>
-            Brand identity packages from R8,500. Professional logo design,
-            brand guidelines, and marketing materials to help establish your
+            Brand identity packages from R8,500. Professional logo design, brand
+            guidelines, and marketing materials to help establish your
             professional business presence.
           </p>
           <ul className="actions special">
@@ -135,16 +144,18 @@ export default function Services() {
           <header>
             <span className="date">Custom Solutions</span>
             <h2>
-              <a href="#">Custom Web Applications</a>
+              <span>Custom Web Applications</span>
             </h2>
           </header>
-          <a href="#" className="image fit">
-            <img
-              src="https://media.istockphoto.com/id/2054515915/photo/satisfaction-document-checklist-database-contract-checkbox-insurance-manager-technology.webp?a=1&b=1&s=612x612&w=0&k=20&c=LaVv9xEoofUgpUX-tJxX1d5y59W3jBRzr8Dz2kZ3_dE="
+          <div className="image fit">
+            <Image
+              src="/images/web-apps.jpg"
               alt="Document checklist and database management technology interface"
+              width={500}
+              height={300}
               className="w-full h-64 object-cover"
             />
-          </a>
+          </div>
           <p>
             Bespoke web applications and SaaS solutions. From client portals to
             complex business systems, we build scalable applications that
@@ -167,16 +178,18 @@ export default function Services() {
             </h2>
           </header>
           <a href="/contact" className="image fit">
-            <img
-              src="https://media.istockphoto.com/id/1045481316/photo/price-delivery-support-quality-web-browser-with-magnifying-glass-3d-rendering.webp?a=1&b=1&s=612x612&w=0&k=20&c=cpNsy47K2eoHPWnqCA70PnHLA_3UkNC6Bb29zd6giyk="
+            <Image
+              src="/images/pic06.jpg"
               alt="Website audit analysis with magnifying glass examining price, delivery, support and quality"
+              width={500}
+              height={300}
               className="w-full h-64 object-cover"
             />
           </a>
           <p>
-            Get a free review of your current website. We'll look at your site's
-            design, performance, and user experience, then provide honest
-            feedback and suggestions for improvement.
+            Get a free review of your current website. We&apos;ll look at your
+            site&apos;s design, performance, and user experience, then provide
+            honest feedback and suggestions for improvement.
           </p>
           <ul className="actions special">
             <li>
@@ -217,8 +230,8 @@ export default function Services() {
 
         <p>
           We handle every aspect of your project with clear communication and
-          professional service. Our goal is to build websites that work well
-          for your business and provide ongoing support when you need it.
+          professional service. Our goal is to build websites that work well for
+          your business and provide ongoing support when you need it.
         </p>
 
         <ul className="actions special">

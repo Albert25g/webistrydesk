@@ -295,8 +295,8 @@ export default function Home() {
             Ready to grow your business online?
           </h2>
           <p className="text-xl opacity-90 mb-8">
-            Let's discuss how we can help you achieve your business goals with
-            professional web solutions.
+            Let&apos;s discuss how we can help you achieve your business goals
+            with professional web solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

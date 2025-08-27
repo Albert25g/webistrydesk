@@ -3,10 +3,17 @@
 import { useCart } from './CartContext';
 import Link from 'next/link';
 
+interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  quantity: number;
+}
+
 export default function Cart() {
   const { items, removeFromCart, clearCart } = useCart();
   const total = items.reduce(
-    (sum: number, item: any) => sum + item.price * item.quantity,
+    (sum: number, item: CartItem) => sum + item.price * item.quantity,
     0
   );
   return (
@@ -23,7 +30,7 @@ export default function Cart() {
         </div>
       ) : (
         <div className="space-y-4 mb-8">
-          {items.map((item: any) => (
+          {items.map((item: CartItem) => (
             <div
               key={item.id}
               className="border rounded-lg p-4 flex items-center justify-between"

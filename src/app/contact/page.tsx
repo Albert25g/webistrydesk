@@ -1,13 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import type { Metadata } from 'next';
 
-const metadata: Metadata = {
-  title: 'Contact — WebistryDesk Professional Web Development',
-  description:
-    'Contact WebistryDesk for professional web development services. Based in Nelspruit (Mbombela), South Africa. Free revenue audits and consultations available.',
-};
+// Note: metadata is moved to layout.tsx for client components
+export const dynamic = 'force-dynamic';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -65,7 +61,7 @@ export default function Contact() {
 
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000);
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } finally {

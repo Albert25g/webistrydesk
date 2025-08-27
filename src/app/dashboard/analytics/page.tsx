@@ -175,7 +175,7 @@ export default function Analytics() {
             <div className="card">
               <h3 className="text-xl font-semibold mb-6">Monthly Revenue</h3>
               <div className="space-y-4">
-                {monthlyRevenue.map((data, index) => (
+                {monthlyRevenue.map((data) => (
                   <div
                     key={data.month}
                     className="flex items-center justify-between"
