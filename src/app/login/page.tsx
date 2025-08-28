@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   firebaseSignIn,
   firebaseSignUp,
@@ -12,17 +13,20 @@ export default function LoginPage() {
   const [email, setEmail] = useState('tester@example.com');
   const [password, setPassword] = useState('password123');
   const [message, setMessage] = useState<string | null>(null);
+  const [currentUser, setCurrentUser] = useState<{
+    email?: string | null;
+  } | null>(null);
+  const router = useRouter();
 
-  async function handleSignUp(e: React.FormEvent) {
-    e.preventDefault();
-    try {
-      await firebaseSignUp(email, password);
-      setMessage('Signed up — now sign in');
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : String(err);
-      setMessage('Sign up error: ' + msg);
-    }
-  }
+  useEffect(() => {
+    initFirebaseClient();
+    const auth = getFirebaseAuth();
+    if (!auth) return;
+    const unsub = auth.onIdTokenChanged((user) => {
+      setCurrentUser(user ? { email: user.email } : null);
+    });
+    return () => unsub && unsub();
+  }, []);
 
   async function handleSignIn(e: React.FormEvent) {
     e.preventDefault();
@@ -48,20 +52,6 @@ export default function LoginPage() {
       setMessage('Sign out error: ' + msg);
     }
   }
-
-  const [currentUser, setCurrentUser] = useState<{
-    email?: string | null;
-  } | null>(null);
-
-  useEffect(() => {
-    initFirebaseClient();
-    const auth = getFirebaseAuth();
-    if (!auth) return;
-    const unsub = auth.onIdTokenChanged((user) => {
-      setCurrentUser(user ? { email: user.email } : null);
-    });
-    return () => unsub && unsub();
-  }, []);
 
   async function callCheckout(e: React.FormEvent) {
     e.preventDefault();
@@ -89,52 +79,85 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="p-6 max-w-xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Test Login / Checkout</h1>
-      <form className="space-y-3">
-        <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="email"
-          className="w-full p-2 border"
-        />
-        <input
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="password"
-          type="password"
-          className="w-full p-2 border"
-        />
-        <div className="flex gap-2">
-          <button onClick={handleSignUp} className="px-3 py-2 bg-gray-200">
-            Sign Up
-          </button>
-          <button
-            onClick={handleSignIn}
-            className="px-3 py-2 bg-blue-500 text-white"
-          >
-            Sign In
-          </button>
-          <button
-            onClick={callCheckout}
-            className="px-3 py-2 bg-green-500 text-white"
-          >
-            Call /api/checkout
-          </button>
-          <button
-            onClick={handleSignOut}
-            className="px-3 py-2 bg-red-500 text-white"
-          >
-            Sign Out
-          </button>
-        </div>
-      </form>
-      {currentUser && (
-        <div className="mt-3 p-2 bg-white border">
-          Signed in: {currentUser.email}
-        </div>
-      )}
-      {message && <pre className="mt-4 p-2 bg-gray-50 border">{message}</pre>}
+    <main className="flex items-center justify-center min-h-[70vh] animate-fade-in">
+      <div className="card w-full max-w-md shadow-xl">
+        <h1 className="text-3xl font-bold mb-6 text-center text-brand-blue">
+          Sign in to WebistryDesk
+        </h1>
+        <form className="space-y-4" autoComplete="off">
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium mb-1">
+              Email
+            </label>
+            <input
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="you@email.com"
+              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-brand-400 focus:outline-none"
+              autoComplete="username"
+              type="email"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium mb-1"
+            >
+              Password
+            </label>
+            <input
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              type="password"
+              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-brand-400 focus:outline-none"
+              autoComplete="current-password"
+            />
+          </div>
+          <div className="flex flex-wrap gap-2 mt-4">
+            <button
+              onClick={handleSignIn}
+              className="btn btn-primary flex-1"
+              type="submit"
+            >
+              Sign In
+            </button>
+            <button
+              type="button"
+              onClick={() => router.push('/register')}
+              className="btn btn-outline flex-1"
+            >
+              Register
+            </button>
+            <button
+              onClick={callCheckout}
+              className="btn btn-secondary flex-1"
+              type="button"
+            >
+              Call /api/checkout
+            </button>
+            <button
+              onClick={handleSignOut}
+              className="btn btn-ghost flex-1"
+              type="button"
+            >
+              Sign Out
+            </button>
+          </div>
+        </form>
+        {currentUser && (
+          <div className="mt-4 p-2 bg-green-50 border rounded text-green-800 text-center animate-fade-in-up">
+            Signed in: {currentUser.email}
+          </div>
+        )}
+        {message && (
+          <pre className="mt-4 p-2 bg-gray-50 border rounded text-sm text-gray-700 animate-fade-in-up whitespace-pre-wrap">
+            {message}
+          </pre>
+        )}
+      </div>
     </main>
   );
 }

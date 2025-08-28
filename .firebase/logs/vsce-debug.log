@@ -230,3 +230,40 @@
 [debug] [2025-08-25T19:01:44.564Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
 [debug] [2025-08-25T19:01:45.989Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
 [debug] [2025-08-25T19:01:45.990Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-08-28T09:44:27.167Z] [Firebase Plugin] Activating Firebase extension.
+[debug] [2025-08-28T09:44:56.779Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-08-28T09:44:56.786Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-28T09:44:56.793Z] > authorizing via signed-in user (ndlovurifumo@gmail.com)
+[debug] [2025-08-28T09:44:56.815Z] Checked if tokens are valid: false, expires at: 1756374391506
+[debug] [2025-08-28T09:44:56.818Z] Checked if tokens are valid: false, expires at: 1756374391506
+[debug] [2025-08-28T09:44:56.820Z] > refreshing access token with scopes: []
+[debug] [2025-08-28T09:44:56.832Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-08-28T09:44:56.836Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-08-28T09:44:56.914Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[debug] [2025-08-28T09:45:11.248Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-08-28T09:45:11.248Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-08-28T09:45:11.338Z] [Firebase Plugin] User found:  ndlovurifumo@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-08-28T09:45:11.343Z] Checked if tokens are valid: true, expires at: 1756377910249
+[debug] [2025-08-28T09:45:11.345Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-08-28T09:45:12.404Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-08-28T09:45:12.405Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] [Firebase Plugin] Stopping Data Connect toolkit
+[debug] [2025-08-28T10:49:22.490Z] [Firebase Plugin] Activating Firebase extension.
+[debug] [2025-08-28T10:49:35.785Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2025-08-28T10:49:35.790Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-28T10:49:35.792Z] > authorizing via signed-in user (ndlovurifumo@gmail.com)
+[debug] [2025-08-28T10:49:35.802Z] Checked if tokens are valid: false, expires at: 1756377910249
+[debug] [2025-08-28T10:49:35.806Z] Checked if tokens are valid: false, expires at: 1756377910249
+[debug] [2025-08-28T10:49:35.808Z] > refreshing access token with scopes: []
+[debug] [2025-08-28T10:49:35.813Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-08-28T10:49:35.814Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-08-28T10:49:35.845Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[debug] [2025-08-28T10:49:37.837Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-08-28T10:49:37.838Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-08-28T10:49:37.936Z] [Firebase Plugin] User found:  ndlovurifumo@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2025-08-28T10:49:37.940Z] Checked if tokens are valid: true, expires at: 1756381776839
+[debug] [2025-08-28T10:49:37.942Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-08-28T10:49:39.013Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-08-28T10:49:39.013Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
