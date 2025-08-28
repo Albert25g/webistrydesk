@@ -12,12 +12,16 @@
     "smoke": "node ./scripts/smoke.mjs",
     "test": "pnpm run smoke",
     "test:unit": "vitest",
+    "test:checkout": "node ./scripts/test-checkout.mjs",
+    "test:checkout:dry": "node ./scripts/test-checkout.mjs --dry",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@stripe/stripe-js": "^7.9.0",
     "@vercel/blob": "^1.1.1",
+    "firebase-admin": "^13.4.0",
+    "firebase": "^10.11.0",
     "framer-motion": "^12.23.12",
     "next": "15.4.6",
     "nodemailer": "^6.9.4",
@@ -26,6 +30,7 @@
     "stripe": "^18.4.0"
   },
   "devDependencies": {
+    "node-fetch": "^3.4.2",
     "@eslint/eslintrc": "^3.3.1",
     "@tailwindcss/postcss": "^4.1.12",
     "@types/node": "^20",

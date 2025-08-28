@@ -5,31 +5,59 @@ import Logo from '@/components/Logo';
 export default function Home() {
   return (
     <div className="container-main">
-      {/* Hero/Featured Section */}
-      <section className="section text-center">
+      {/* Hero / Featured Section (refined) */}
+      <section
+        aria-label="Hero"
+        className="section bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800"
+      >
         <div className="container-narrow">
-          <div className="card-premium p-12">
-            {/* Large Logo Display */}
-            <div className="flex flex-col items-center mb-8">
-              <div className="mb-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-12">
+            <div>
+              <div className="inline-flex items-center gap-4 mb-4">
                 <Logo size="large" showText={true} variant="light" />
+                <span className="inline-block rounded-full bg-brand-50 text-brand-600 px-3 py-1 text-sm font-medium">
+                  Trusted web partners
+                </span>
               </div>
-              <p className="text-brand-blue font-medium">
-                Professional Web Development & Digital Solutions
+
+              <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-6 text-slate-900 dark:text-white">
+                Beautifully crafted websites that convert visitors into
+                customers
+              </h1>
+
+              <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 max-w-prose">
+                We design fast, accessible, and SEO-friendly sites that focus on
+                clarity and results — from discovery to launch and ongoing
+                growth.
               </p>
+
+              <div className="flex flex-wrap gap-3">
+                <Link href="/contact" className="btn btn-primary">
+                  Start a Project
+                </Link>
+                <Link href="/portfolio" className="btn btn-outline">
+                  See Portfolio
+                </Link>
+                <a
+                  href="/downloads/design-checklist.html"
+                  className="btn btn-ghost text-sm"
+                >
+                  Free design checklist
+                </a>
+              </div>
             </div>
-            <span className="trust-badge mb-6">Web Development</span>
-            <h1 className="text-gradient mb-6">
-              Clean, professional websites designed to help your business grow
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              We focus on what matters: user experience, performance, and
-              results.
-            </p>
-            <div className="flex justify-center">
-              <Link href="/services" className="btn btn-primary">
-                View Our Services
-              </Link>
+
+            <div className="hidden lg:block">
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/webistry-hero.jpg"
+                  alt="Illustration of a modern website on devices"
+                  width={960}
+                  height={600}
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -96,3 +96,32 @@ stack_overrides:
   - Use file-system routing and colocation; avoid custom routers.
   - For styling, prefer utility classes; extract to components for reuse.
   - Provide Lighthouse-friendly recommendations (image optimization, fonts).
+
+repo_stack:
+summary: "Concise project stack and build details to help the assistant and contributors reason about changes."
+framework: "Next.js (App Router)"
+next_version: "15.4.6"
+react_version: "19.1.0"
+typescript: "^5"
+tailwind: "tailwindcss v4 (configured)"
+package_manager: "pnpm"
+node_engine: ">=18.17 <23"
+stripe:
+server_sdk: "stripe ^18.4.0"
+client_sdk: "@stripe/stripe-js ^7.9.0"
+firebase:
+admin: "firebase-admin ^13.4.0"
+client: "firebase 10.x (installed 10.14.1)"
+testing: "vitest"
+linting: "ESLint (Next.js config)"
+hosting: "Vercel (preview builds / CI)"
+build_command: "pnpm build (runs next build)"
+lockfile: "pnpm-lock.yaml present; CI uses frozen-lockfile"
+notable_files: - src/app/api/checkout/route.ts # protected Stripe checkout route - src/lib/firebaseAdmin.ts # server token verification helper - src/lib/firebaseClient.ts # client firebase helper - src/app/login/page.tsx # small test login page
+env_vars_of_interest:
+
+- STRIPE_SECRET_KEY
+- NEXT_PUBLIC_FIREBASE_API_KEY
+- FIREBASE_SERVICE_ACCOUNT_KEY (or GOOGLE_APPLICATION_CREDENTIALS)
+
+# used-by-assistant: true
