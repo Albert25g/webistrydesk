@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
-. "$(dirname "$0")/_/husky.sh"
 
+# Husky v10 compatibility: avoid sourcing _/husky.sh in the hook.
+# Keep the same checks below — uncomment as needed.
 # Run environment check and lint before push
-# # bash scripts/check-env-not-tracked.sh
+# bash scripts/check-env-not-tracked.sh
 # npm run lint
+
+exit 0
