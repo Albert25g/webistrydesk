@@ -20,7 +20,7 @@ export default function Home() {
                 </span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-6 text-[#C0C0C0] dark:text-[#D9D9D9]">
+              <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-6 hero-silver">
                 Beautifully crafted websites that convert visitors into
                 customers
               </h1>

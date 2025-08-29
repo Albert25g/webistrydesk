@@ -130,6 +130,14 @@ h6 {
   }
 }
 
+/* Hero heading override to ensure contrast on background gradients */
+.hero-silver {
+  color: #C0C0C0;
+}
+.dark .hero-silver {
+  color: #D9D9D9;
+}
+
 /* Button System - Professional and Accessible */
 .btn {
   display: inline-flex;
