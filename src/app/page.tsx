@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import Image from 'next/image';
 import Logo from '@/components/Logo';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
                 </span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-6 text-slate-900 dark:text-white">
+              <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-6 text-[#C0C0C0] dark:text-[#D9D9D9]">
                 Beautifully crafted websites that convert visitors into
                 customers
               </h1>
