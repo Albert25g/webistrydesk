@@ -1,6 +1,6 @@
 @import 'tailwindcss/index.css';
 
-/* 
+/*
   WebistryDesk Professional Brand Color System
   Built for trust, professionalism, and conversion
   Tailwind CSS v4 compatible
@@ -132,10 +132,45 @@ h6 {
 
 /* Hero heading override to ensure contrast on background gradients */
 .hero-silver {
-  color: #C0C0C0;
+  color: #c0c0c0;
 }
 .dark .hero-silver {
-  color: #D9D9D9;
+  color: #d9d9d9;
+}
+.hero-outline {
+  /* Silver outline using multiple text-shadows for broader browser support */
+  text-shadow: -1px -1px 0 #c0c0c0, 1px -1px 0 #c0c0c0, -1px 1px 0 #c0c0c0,
+    1px 1px 0 #c0c0c0, 0 -2px 0 #c0c0c0, 0 2px 0 #c0c0c0;
+}
+.dark .hero-outline {
+  text-shadow: -1px -1px 0 #d9d9d9, 1px -1px 0 #d9d9d9, -1px 1px 0 #d9d9d9,
+    1px 1px 0 #d9d9d9, 0 -2px 0 #d9d9d9, 0 2px 0 #d9d9d9;
+}
+
+/* Utility: scale element by 1.3 (approx +30%) */
+.scale-130 {
+  transform: scale(1.3);
+  transform-origin: center;
+}
+/* Overlay helper for hero image text legibility */
+.hero-overlay {
+  position: relative;
+  overflow: visible;
+}
+.hero-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-overlay > * {
+  z-index: 1;
 }
 
 /* Button System - Professional and Accessible */

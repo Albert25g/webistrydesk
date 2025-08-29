@@ -1,3 +1,4 @@
+import Hero from '@/components/Hero';
 import Logo from '@/components/Logo';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,7 +12,25 @@ export default function Home() {
         className="section bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800"
       >
         <div className="container-narrow">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-12">
+          <div className="grid grid-cols-1 gap-8 items-start py-12">
+            {/* Image with overlay heading (carousel) */}
+            <Hero
+              images={[
+                '/images/webistry-hero.jpg',
+                '/images/web-development.jpg',
+                '/images/web-apps.jpg',
+                '/images/vecteezy_modern-technology-abstract-creative-dynamin-gradient-wave_49932038.jpg',
+              ]}
+              interval={6000}
+              title={
+                <>
+                  Beautifully crafted websites that convert visitors into
+                  customers
+                </>
+              }
+            />
+
+            {/* Content below the hero image */}
             <div>
               <div className="inline-flex items-center gap-4 mb-4">
                 <Logo size="large" showText={true} variant="light" />
@@ -19,11 +38,6 @@ export default function Home() {
                   Trusted web partners
                 </span>
               </div>
-
-              <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-6 hero-silver">
-                Beautifully crafted websites that convert visitors into
-                customers
-              </h1>
 
               <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 max-w-prose">
                 We design fast, accessible, and SEO-friendly sites that focus on
@@ -44,19 +58,6 @@ export default function Home() {
                 >
                   Free design checklist
                 </a>
-              </div>
-            </div>
-
-            <div className="hidden lg:block">
-              <div className="rounded-xl overflow-hidden shadow-lg">
-                <Image
-                  src="/images/webistry-hero.jpg"
-                  alt="Illustration of a modern website on devices"
-                  width={960}
-                  height={600}
-                  className="w-full h-auto object-cover"
-                  priority
-                />
               </div>
             </div>
           </div>
