@@ -1,0 +1,41 @@
+{
+  "name": "webistrydesk (devcontainer)",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+
+  // Install Node 20 and pnpm automatically
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20",
+      "pnpm": "true"
+    }
+  },
+
+  // Use the non-root user that devcontainers set up
+  "remoteUser": "vscode",
+
+  // Open Next.js dev port and mark as public/preview
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": { "label": "Web app", "onAutoForward": "openPreview" }
+  },
+
+  // Your install will now succeed because pnpm is present
+  "postCreateCommand": "pnpm install",
+
+  // Put editor stuff under customizations (recommended)
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "ms-vsliveshare.vsliveshare",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint"
+      ],
+      "settings": {
+        // Prefer default profile instead of deprecated shell setting
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}
