@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import Logo from '@/components/Logo';
 import Hero from '@/components/Hero';
+import Logo from '@/components/Logo';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -48,12 +48,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="hidden lg:block">
+            <div className="block">
               <Hero
-                images={[
-                  '/images/hero-1.jpeg',
-                  '/images/hero-2.jpeg',
-                ]}
+                images={['/images/hero-1.jpeg', '/images/hero-2.jpeg']}
                 interval={6000}
                 title={
                   <>
