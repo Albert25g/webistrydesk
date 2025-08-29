@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '@/components/Logo';
+import Hero from '@/components/Hero';
 
 export default function Home() {
   return (
@@ -48,16 +49,19 @@ export default function Home() {
             </div>
 
             <div className="hidden lg:block">
-              <div className="rounded-xl overflow-hidden shadow-lg">
-                <Image
-                  src="/images/webistry-hero.jpg"
-                  alt="Illustration of a modern website on devices"
-                  width={960}
-                  height={600}
-                  className="w-full h-auto object-cover"
-                  priority
-                />
-              </div>
+              <Hero
+                images={[
+                  '/images/hero-1.jpeg',
+                  '/images/hero-2.jpeg',
+                ]}
+                interval={6000}
+                title={
+                  <>
+                    Beautifully crafted websites that convert visitors into
+                    customers
+                  </>
+                }
+              />
             </div>
           </div>
         </div>
