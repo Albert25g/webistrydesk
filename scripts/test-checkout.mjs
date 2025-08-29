@@ -10,10 +10,16 @@
  */
 
 import admin from 'firebase-admin';
+import fs from 'fs';
+import path from 'path';
 
-const SERVICE_ACCOUNT =
-  process.env.FIREBASE_SERVICE_ACCOUNT_KEY ||
-  process.env.GOOGLE_APPLICATION_CREDENTIALS;
+const SERVICE_ACCOUNT_ENV = process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
+const SERVICE_ACCOUNT_PATH = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+const DEFAULT_LOCAL_PATH = path.join(
+  process.env.HOME || '',
+  '.secrets',
+  'webistrydesk-firebase-admin.json'
+);
 const API_KEY = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
 const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
 const DRY = process.argv.includes('--dry') || process.argv.includes('-d');
@@ -44,7 +50,7 @@ async function main() {
     );
     console.log(
       'FIREBASE_SERVICE_ACCOUNT_KEY=',
-      SERVICE_ACCOUNT ? '[REDACTED]' : '<missing>'
+      SERVICE_ACCOUNT_ENV ? '[REDACTED]' : '<missing>'
     );
     console.log('\nSample curl to call checkout (replace <ID_TOKEN>):');
     console.log(
@@ -53,22 +59,38 @@ async function main() {
     return;
   }
 
-  if (!SERVICE_ACCOUNT) {
+  if (
+    !SERVICE_ACCOUNT_ENV &&
+    !SERVICE_ACCOUNT_PATH &&
+    !fs.existsSync(DEFAULT_LOCAL_PATH)
+  ) {
     fatal(
-      'Missing FIREBASE_SERVICE_ACCOUNT_KEY (or GOOGLE_APPLICATION_CREDENTIALS) in env'
+      'Missing Firebase service account. Provide FIREBASE_SERVICE_ACCOUNT_KEY (JSON) or set GOOGLE_APPLICATION_CREDENTIALS to a service account file. Expected default: ' +
+        DEFAULT_LOCAL_PATH
     );
   }
   if (!API_KEY) {
     fatal('Missing NEXT_PUBLIC_FIREBASE_API_KEY in env');
   }
 
-  // Initialize admin
+  // Initialize admin (prefer explicit key)
   try {
-    if (process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
-      const parsed = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
+    if (SERVICE_ACCOUNT_ENV) {
+      const parsed = JSON.parse(SERVICE_ACCOUNT_ENV);
       admin.initializeApp({ credential: admin.credential.cert(parsed) });
     } else {
-      admin.initializeApp();
+      const candidate = SERVICE_ACCOUNT_PATH || DEFAULT_LOCAL_PATH;
+      if (candidate && fs.existsSync(candidate)) {
+        const raw = fs.readFileSync(candidate, 'utf8');
+        const parsed = JSON.parse(raw);
+        admin.initializeApp({ credential: admin.credential.cert(parsed) });
+      } else {
+        fatal(
+          'No Firebase service account found at ' +
+            candidate +
+            '. Set FIREBASE_SERVICE_ACCOUNT_KEY or GOOGLE_APPLICATION_CREDENTIALS.'
+        );
+      }
     }
   } catch (err) {
     fatal(

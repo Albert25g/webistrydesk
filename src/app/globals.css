@@ -1,6 +1,6 @@
 @import 'tailwindcss/index.css';
 
-/* 
+/*
   WebistryDesk Professional Brand Color System
   Built for trust, professionalism, and conversion
   Tailwind CSS v4 compatible
@@ -501,4 +501,94 @@ h6 {
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
+}
+
+/* Minimal carousel styles for Hero component */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 420px;
+}
+.carousel-image {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 600ms ease-in-out, transform 600ms ease-in-out;
+  transform: scale(1.02);
+}
+.carousel-image.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+.carousel-image img,
+.carousel-image .next-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carousel-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Make hero heading transparent (showing the image through the text)
+   while keeping it readable using an outline and shadow. Works across
+   modern browsers; -webkit-text-stroke provides the visible edge.
+*/
+.hero-outline {
+  /* Solid earthy color for improved legibility over images */
+  color: #7a5a3c; /* warm earthy brown */
+  -webkit-text-stroke: 0.9px rgba(0, 0, 0, 0.9); /* thin black border */
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); /* subtle depth */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 640px) {
+  .hero-outline {
+    color: #7a5a3c;
+    -webkit-text-stroke: 0.6px rgba(0, 0, 0, 0.9);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+  }
+}
+.hero-outline {
+  /* Light gray hero heading for subtle contrast */
+  color: #e5e7eb; /* Tailwind gray-200 */
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.18); /* lighter shadow */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 640px) {
+  .hero-outline {
+    color: #e5e7eb;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+  }
+}
+.carousel-indicators {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 12px;
+  display: flex;
+  gap: 8px;
+  z-index: 3;
+}
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.indicator.active {
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }

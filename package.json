@@ -20,6 +20,7 @@
     "@heroicons/react": "^2.2.0",
     "@stripe/stripe-js": "^7.9.0",
     "@vercel/blob": "^1.1.1",
+<<<<<<< HEAD
     "firebase": "^10.11.0",
     "firebase-admin": "^13.4.0",
     "framer-motion": "^12.23.12",
@@ -29,26 +30,57 @@
     "react-dom": "19.1.0",
     "react-easy-crop": "^5.5.0",
     "stripe": "^18.4.0"
+=======
+    "firebase": "^12.2.1",
+    "firebase-admin": "^13.5.0",
+    "framer-motion": "^12.23.12",
+    "next": "15.5.2",
+    "nodemailer": "^7.0.5",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "stripe": "^18.5.0"
+>>>>>>> dev-no-workflow
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
     "@tailwindcss/postcss": "^4.1.12",
-    "@types/node": "^20",
+    "@types/node": "^24.3.0",
     "@types/nodemailer": "^7.0.1",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
     "autoprefixer": "^10.4.21",
     "eslint": "^9",
+<<<<<<< HEAD
     "eslint-config-next": "15.4.6",
     "husky": "^8.0.0",
     "node-fetch": "^3.3.2",
+=======
+    "eslint-config-next": "15.5.2",
+    "husky": "^9.1.7",
+    "node-fetch": "^3.4.2",
+>>>>>>> dev-no-workflow
     "postcss": "^8.5.6",
     "sharp": "^0.34.3",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vitest": "^1.5.3"
+    "vitest": "^3.2.4"
   },
   "engines": {
     "node": ">=18.17 <23"
+  },
+  "pnpm": {
+    "overrides": {
+      "undici": "^6.21.2",
+      "esbuild": "^0.25.0",
+      "node-fetch": "3.3.2"
+    },
+    "onlyBuiltDependencies": [
+      "@firebase/util",
+      "@tailwindcss/oxide",
+      "esbuild",
+      "protobufjs",
+      "sharp",
+      "unrs-resolver"
+    ]
   }
 }
